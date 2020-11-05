@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @Constants.Global.SITE_NAME</title>
+
+    <!-- Favicons -->
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <partial name="_TopStyles" />
+
+</head>
+<body>
+    <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+        <partial name="_SocialLinks" />
+    </div>
+
+    <header id="header" class="fixed-top">
+        <partial name="_Navigation" />
+    </header>
+
+    <main id="main">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <partial name="_FooterContent" />
+    </footer>
+
+    <div id="preloader"></div>
+
+    <partial name="_BottomScripts" />
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

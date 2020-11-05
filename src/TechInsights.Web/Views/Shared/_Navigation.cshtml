@@ -1,0 +1,25 @@
+﻿<div class="container d-flex align-items-center">
+
+    <h1 class="logo mr-auto">
+        <a asp-controller="Home" asp-action="Index">
+            @Constants.Global.AUTHOR<span>.</span>
+        </a>
+    </h1>
+
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+
+    <nav class="nav-menu d-none d-lg-block">
+        <ul>
+            <li class="active">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a asp-controller="Blog" asp-action="Index"> - Blog - </a></li>
+            <li><a asp-controller="Curriculum" asp-action="Index"> - CV - </a></li>            
+
+        </ul>
+    </nav><!-- .nav-menu -->
+
+</div>
