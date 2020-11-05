@@ -20,6 +20,6 @@ namespace TechInsights.Entities.Models
 
         public string ProjectUrl { get; set; }
 
-        public byte[] ClientImage { get; set; }
+        public virtual Image ClientImage { get; set; }
     }
 }

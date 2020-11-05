@@ -11,5 +11,7 @@ namespace TechInsights.Repository
         }
 
         public DbSet<PortfolioClient> PortfolioClient { get; set; }
+
+        public DbSet<Image> Images { get; set; }
     }
 }

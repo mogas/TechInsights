@@ -13,7 +13,5 @@
         public string Category { get; set; }
 
         public string ProjectUrl { get; set; }
-
-        public byte[] ClientImage { get; set; }
     }
 }

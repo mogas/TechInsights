@@ -10,8 +10,8 @@ using TechInsights.Repository;
 namespace TechInsights.Repository.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20201105202724_AddedTitleDescriptionToPortfolio")]
-    partial class AddedTitleDescriptionToPortfolio
+    [Migration("20201105224121_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,27 @@ namespace TechInsights.Repository.Migrations
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("TechInsights.Entities.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
+                });
 
             modelBuilder.Entity("TechInsights.Entities.Models.PortfolioClient", b =>
                 {
@@ -38,8 +59,8 @@ namespace TechInsights.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("ClientImage")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<int?>("ClientImageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -58,7 +79,16 @@ namespace TechInsights.Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientImageId");
+
                     b.ToTable("PortfolioClient");
+                });
+
+            modelBuilder.Entity("TechInsights.Entities.Models.PortfolioClient", b =>
+                {
+                    b.HasOne("TechInsights.Entities.Models.Image", "ClientImage")
+                        .WithMany()
+                        .HasForeignKey("ClientImageId");
                 });
 #pragma warning restore 612, 618
         }
