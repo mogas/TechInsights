@@ -1,0 +1,50 @@
+﻿[
+  {
+    "outputFile": "wwwroot/sass/base/Default.css",
+    "inputFile": "wwwroot/sass/base/Default.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/About.css",
+    "inputFile": "wwwroot/sass/components/About.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Breadcrumb.css",
+    "inputFile": "wwwroot/sass/components/Breadcrumb.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Contact.css",
+    "inputFile": "wwwroot/sass/components/Contact.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Footer.css",
+    "inputFile": "wwwroot/sass/components/Footer.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Header.css",
+    "inputFile": "wwwroot/sass/components/Header.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Hero.css",
+    "inputFile": "wwwroot/sass/components/Hero.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Navigation.css",
+    "inputFile": "wwwroot/sass/components/Navigation.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Portfolio.css",
+    "inputFile": "wwwroot/sass/components/Portfolio.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Preloader.css",
+    "inputFile": "wwwroot/sass/components/Preloader.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Sections.css",
+    "inputFile": "wwwroot/sass/components/Sections.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Topbar.css",
+    "inputFile": "wwwroot/sass/components/Topbar.scss"
+  }
+]
