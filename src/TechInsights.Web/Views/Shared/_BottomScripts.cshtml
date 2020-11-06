@@ -4,4 +4,9 @@
 <script type="text/javascript" src="~/lib/aos/aos.min.js"></script>
 
 @*custom scripts*@
-<script src="~/js/site.js" asp-append-version="true"></script>
+<environment names="Development">
+    <script src="~/js/site.js"></script>
+</environment>
+<environment names="Production">
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+</environment>
