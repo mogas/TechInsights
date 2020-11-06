@@ -30,14 +30,14 @@
 
 .contact .php-email-form .validate {
   display: none;
-  color: red;
+  color: #FF0000;
   margin: 0 0 15px 0;
   font-weight: 400;
   font-size: 13px; }
 
 .contact .php-email-form .error-message {
   display: none;
-  color: #fff;
+  color: #ffffff;
   background: #ed3c0d;
   text-align: left;
   padding: 15px;
@@ -48,7 +48,7 @@
 
 .contact .php-email-form .sent-message {
   display: none;
-  color: #fff;
+  color: #ffffff;
   background: #18d26e;
   text-align: center;
   padding: 15px;
@@ -56,7 +56,7 @@
 
 .contact .php-email-form .loading {
   display: none;
-  background: #fff;
+  background: #ffffff;
   text-align: center;
   padding: 15px; }
 
@@ -68,7 +68,7 @@
   height: 24px;
   margin: 0 10px -6px 0;
   border: 3px solid #18d26e;
-  border-top-color: #eee;
+  border-top-color: #ffffff;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite; }
 
@@ -90,7 +90,7 @@
   background: #330066;
   border: 0;
   padding: 10px 30px;
-  color: #fff;
+  color: #ffffff;
   transition: 0.4s;
   border-radius: 4px; }
 

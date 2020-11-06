@@ -1,6 +1,9 @@
-﻿.breadcrumbs {
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+.breadcrumbs {
     padding: 20px 0;
-    background-color: #f1f6fe;
+    background-color: $color-breadcrumb-bg;
     min-height: 40px;
 }
 
@@ -33,7 +36,7 @@
 .breadcrumbs ol li + li::before {
     display: inline-block;
     padding-right: 10px;
-    color: #6c757d;
+    color: $color-grey-light;
     content: "/";
 }
 

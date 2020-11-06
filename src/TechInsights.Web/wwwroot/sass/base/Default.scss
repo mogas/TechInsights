@@ -2,20 +2,20 @@
 @import '../abstracts/_variables.scss';
 
 .text-purple {
-    color: #330066;
+    color: $color-theme;
 }
 
 body {
     font-family: "Open Sans", sans-serif;
-    color: $color-body;
+    color: $color-grey-dark;
 }
 
 a {
-    color: $color-link;
+    color: $color-theme;
 }
 
 a:hover {
-    color: $color-link-hover;
+    color: $color-hover;
     text-decoration: none;
 }
 

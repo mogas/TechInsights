@@ -1,5 +1,8 @@
-﻿.contact .info-box {
-    color: #444444;
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+.contact .info-box {
+    color: $color-grey-dark;
     text-align: center;
     box-shadow: 0 0 30px rgba(214, 215, 216, 0.3);
     padding: 20px 0 30px 0;
@@ -7,7 +10,7 @@
 
 .contact .info-box i {
     font-size: 32px;
-    color: #330066;
+    color: $color-theme;
     border-radius: 50%;
     padding: 8px;
 }
@@ -18,7 +21,7 @@
 
 .contact .info-box a {
     font-size: 16px;
-    color: #777777;
+    color: $color-grey-light-2;
     font-weight: 700;
 }
 
@@ -36,7 +39,7 @@
 
 .contact .php-email-form .validate {
     display: none;
-    color: red;
+    color: $color-red;
     margin: 0 0 15px 0;
     font-weight: 400;
     font-size: 13px;
@@ -44,8 +47,8 @@
 
 .contact .php-email-form .error-message {
     display: none;
-    color: #fff;
-    background: #ed3c0d;
+    color: $color-white;
+    background: $color-red-light;
     text-align: left;
     padding: 15px;
     font-weight: 600;
@@ -57,8 +60,8 @@
 
 .contact .php-email-form .sent-message {
     display: none;
-    color: #fff;
-    background: #18d26e;
+    color: $color-white;
+    background: $color-green;
     text-align: center;
     padding: 15px;
     font-weight: 600;
@@ -66,7 +69,7 @@
 
 .contact .php-email-form .loading {
     display: none;
-    background: #fff;
+    background: $color-white;
     text-align: center;
     padding: 15px;
 }
@@ -78,8 +81,8 @@
     width: 24px;
     height: 24px;
     margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
-    border-top-color: #eee;
+    border: 3px solid $color-green;
+    border-top-color: $color-white;
     -webkit-animation: animate-loading 1s linear infinite;
     animation: animate-loading 1s linear infinite;
 }
@@ -91,7 +94,7 @@
 }
 
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-    border-color: #330066;
+    border-color: $color-theme;
 }
 
 .contact .php-email-form input {
@@ -103,14 +106,14 @@
 }
 
 .contact .php-email-form button[type="submit"] {
-    background: #330066;
+    background: $color-theme;
     border: 0;
     padding: 10px 30px;
-    color: #fff;
+    color: $color-white;
     transition: 0.4s;
     border-radius: 4px;
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-    background: #3b8af2;
+    background: $color-hover;
 }

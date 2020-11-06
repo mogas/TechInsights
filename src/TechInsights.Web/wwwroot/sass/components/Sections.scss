@@ -1,10 +1,13 @@
-﻿section {
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+section {
     padding: 60px 0;
     overflow: hidden;
 }
 
 .section-bg {
-    background-color: #f6f9fe;
+    background-color: $color-white-2;
 }
 
 .section-title {
@@ -18,8 +21,8 @@
     font-weight: 700;
     padding: 8px 20px;
     margin: 0;
-    background: #e7f1fd;
-    color: #330066;
+    background: $color-white-3;
+    color: $color-theme;
     display: inline-block;
     text-transform: uppercase;
     border-radius: 50px;
@@ -32,7 +35,7 @@
 }
 
 .section-title h3 span {
-    color: #330066;
+    color: $color-theme;
 }
 
 .section-title p {

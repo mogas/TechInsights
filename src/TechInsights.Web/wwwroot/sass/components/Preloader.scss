@@ -1,4 +1,7 @@
-﻿#preloader {
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+#preloader {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,7 +9,7 @@
     bottom: 0;
     z-index: 9999;
     overflow: hidden;
-    background: #fff;
+    background: $color-white;
 }
 
 #preloader:before {
@@ -14,8 +17,8 @@
     position: fixed;
     top: calc(50% - 30px);
     left: calc(50% - 30px);
-    border: 6px solid #330066;
-    border-top-color: #e2eefd;
+    border: 6px solid $color-theme;
+    border-top-color: $color-grey-light-3;
     border-radius: 50%;
     width: 60px;
     height: 60px;

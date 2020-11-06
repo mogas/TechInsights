@@ -2,7 +2,7 @@
   {
     "outputFileName": "wwwroot/css/site.css",
     "inputFiles": [
-      "wwwroot/sass/**/!(*.min).css"
+      "wwwroot/sass/**/*.css"
     ],
     "minify": {
       "enabled": false      
@@ -11,7 +11,7 @@
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
-      "wwwroot/sass/**/!(*.min).css"
+      "wwwroot/sass/**/*.css"
     ]
   },
   {

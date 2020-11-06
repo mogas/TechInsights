@@ -1,5 +1,8 @@
-﻿#topbar {
-    background: #330066;
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+#topbar {
+    background: $color-theme;
     height: 40px;
     font-size: 14px;
     transition: all 0.5s;

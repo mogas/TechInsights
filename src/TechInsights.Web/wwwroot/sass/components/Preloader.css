@@ -6,7 +6,7 @@
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #fff; }
+  background: #ffffff; }
 
 #preloader:before {
   content: "";
@@ -14,7 +14,7 @@
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #330066;
-  border-top-color: #e2eefd;
+  border-top-color: #eee;
   border-radius: 50%;
   width: 60px;
   height: 60px;

@@ -1,4 +1,7 @@
-﻿/* Desktop Navigation */
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+/* Desktop Navigation */
 .nav-menu ul {
     margin: 0;
     padding: 0;
@@ -18,7 +21,7 @@
 .nav-menu a {
     display: block;
     position: relative;
-    color: #222222;
+    color: $color-black;
     transition: 0.3s;
     font-size: 15px;
     font-weight: 600;
@@ -33,7 +36,7 @@
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #330066;
+    background-color: $color-theme;
     visibility: hidden;
     width: 0px;
     transition: all 0.3s ease-in-out 0s;
@@ -45,7 +48,7 @@
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-    color: #330066;
+    color: $color-theme;
 }
 
 
@@ -67,7 +70,7 @@
 }
 
 .mobile-nav-toggle i {
-    color: #222222;
+    color: $color-black;
 }
 
 .mobile-nav {
@@ -78,7 +81,7 @@
     left: 15px;
     z-index: 9999;
     overflow-y: auto;
-    background: #fff;
+    background: $color-white;
     transition: ease-in-out 0.2s;
     opacity: 0;
     visibility: hidden;
@@ -95,14 +98,14 @@
 .mobile-nav a {
     display: block;
     position: relative;
-    color: #222222;
+    color: $color-black;
     padding: 10px 20px;
     font-weight: 500;
     outline: none;
 }
 
 .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
-    color: #330066;
+    color: $color-theme;
     text-decoration: none;
 }
 
@@ -129,5 +132,5 @@
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-    color: #fff;
+    color: $color-white;
 }

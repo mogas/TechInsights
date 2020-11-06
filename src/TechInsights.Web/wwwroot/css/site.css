@@ -139,14 +139,14 @@ main {
 
 .contact .php-email-form .validate {
   display: none;
-  color: red;
+  color: #FF0000;
   margin: 0 0 15px 0;
   font-weight: 400;
   font-size: 13px; }
 
 .contact .php-email-form .error-message {
   display: none;
-  color: #fff;
+  color: #ffffff;
   background: #ed3c0d;
   text-align: left;
   padding: 15px;
@@ -157,7 +157,7 @@ main {
 
 .contact .php-email-form .sent-message {
   display: none;
-  color: #fff;
+  color: #ffffff;
   background: #18d26e;
   text-align: center;
   padding: 15px;
@@ -165,7 +165,7 @@ main {
 
 .contact .php-email-form .loading {
   display: none;
-  background: #fff;
+  background: #ffffff;
   text-align: center;
   padding: 15px; }
 
@@ -177,7 +177,7 @@ main {
   height: 24px;
   margin: 0 10px -6px 0;
   border: 3px solid #18d26e;
-  border-top-color: #eee;
+  border-top-color: #ffffff;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite; }
 
@@ -199,7 +199,7 @@ main {
   background: #330066;
   border: 0;
   padding: 10px 30px;
-  color: #fff;
+  color: #ffffff;
   transition: 0.4s;
   border-radius: 4px; }
 
@@ -207,13 +207,12 @@ main {
   background: #3b8af2; }
 
 #footer {
-  background: #fff;
+  background: #ffffff;
   color: #444444;
-  font-size: 14px;
-  background: #FCF7FF; }
+  font-size: 14px; }
 
 #header {
-  background: #fff;
+  background: #ffffff;
   transition: all 0.5s;
   z-index: 997;
   padding: 25px 0;
@@ -298,46 +297,6 @@ main {
   margin: 5px 0 30px 0;
   font-size: 24px;
   font-weight: 400; }
-
-#hero .btn-get-started {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 28px;
-  border-radius: 4px;
-  transition: 0.5s;
-  color: #fff;
-  background: #330066; }
-
-#hero .btn-get-started:hover {
-  background: #247cf0; }
-
-#hero .btn-watch-video {
-  font-size: 16px;
-  display: inline-block;
-  padding: 10px 25px 8px 40px;
-  transition: 0.5s;
-  margin-left: 25px;
-  color: #222222;
-  position: relative;
-  font-weight: 600; }
-
-#hero .btn-watch-video i {
-  color: #330066;
-  font-size: 32px;
-  position: absolute;
-  left: 0;
-  top: 7px;
-  transition: 0.3s; }
-
-#hero .btn-watch-video:hover {
-  color: #330066; }
-
-#hero .btn-watch-video:hover i {
-  color: #3b8af2; }
 
 @media (min-width: 1024px) {
   #hero {
@@ -427,7 +386,7 @@ main {
   left: 15px;
   z-index: 9999;
   overflow-y: auto;
-  background: #fff;
+  background: #ffffff;
   transition: ease-in-out 0.2s;
   opacity: 0;
   visibility: hidden;
@@ -471,7 +430,7 @@ main {
   visibility: visible; }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #fff; }
+  color: #ffffff; }
 
 .portfolio #portfolio-flters {
   padding: 0;
@@ -547,7 +506,7 @@ main {
   transition: all ease-in-out 0.3s; }
 
 .portfolio .portfolio-item .portfolio-links a {
-  color: #fff;
+  color: #ffffff;
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -574,7 +533,7 @@ main {
   position: absolute;
   right: 0;
   bottom: -70px;
-  background: #fff;
+  background: #ffffff;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   z-index: 2; }
 
@@ -620,7 +579,7 @@ main {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #fff; }
+  background: #ffffff; }
 
 #preloader:before {
   content: "";
@@ -628,7 +587,7 @@ main {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #330066;
-  border-top-color: #e2eefd;
+  border-top-color: #eee;
   border-radius: 50%;
   width: 60px;
   height: 60px;

@@ -1,6 +1,8 @@
-﻿#footer {
-    background: #fff;
-    color: #444444;
-    font-size: 14px;
-    background: #FCF7FF;
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+#footer {
+    background: $color-white;
+    color: $color-grey-dark;
+    font-size: 14px;    
 }

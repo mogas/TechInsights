@@ -1,5 +1,8 @@
-﻿#header {
-    background: #fff;
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+#header {
+    background: $color-white;
     transition: all 0.5s;
     z-index: 997;
     padding: 25px 0;
@@ -23,11 +26,11 @@
 }
 
 #header .logo a {
-    color: #222222;
+    color: $color-black;
 }
 
 #header .logo a span {
-    color: #330066;
+    color: $color-theme;
 }
 
 #header .logo img {
