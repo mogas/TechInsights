@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using System.Threading;
+using System.Threading.Tasks;
 using TechInsights.Entities.Models;
+using TechInsights.Services.Contact;
 using TechInsights.Web.Models;
 
 namespace TechInsights.Web.Controllers
@@ -10,10 +11,12 @@ namespace TechInsights.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IContactFormService _contactFormService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IContactFormService contactFormService)
         {
             _logger = logger;
+            _contactFormService = contactFormService;
         }
 
         public IActionResult Index()
@@ -28,10 +31,19 @@ namespace TechInsights.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendMessage(ContactForm form)
+        public async Task<IActionResult> SendMessage(ContactForm form)
         {
-            Thread.Sleep(2000);
-            return View("Index");
+            if (form != null && ModelState.IsValid)
+            {
+                var result = await _contactFormService.AddContactForm(form);
+
+                if (result)
+                {
+                    return View("Index");
+                }
+            }
+
+            return Error();
         }
     }
 }

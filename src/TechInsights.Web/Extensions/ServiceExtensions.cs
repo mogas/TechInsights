@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TechInsights.Repository;
+using TechInsights.Services.Contact;
 using TechInsights.Services.Portfolio;
 
 namespace TechInsights.Web.Extensions
@@ -12,6 +13,7 @@ namespace TechInsights.Web.Extensions
         {
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddTransient<IPortfolioService, PortfolioService>();
+            services.AddTransient<IContactFormService, ContactFormService>();
         }
 
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration config)
