@@ -19,7 +19,5 @@ namespace TechInsights.Entities.Models
         public string Category { get; set; }
 
         public string ProjectUrl { get; set; }
-
-        public virtual Image ClientImage { get; set; }
     }
 }

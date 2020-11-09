@@ -8,6 +8,6 @@ namespace TechInsights.Entities
         [Key]
         public int Id { get; set; }
 
-        public DateTime AddedDate { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }

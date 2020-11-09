@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Threading;
+using TechInsights.Entities.Models;
 using TechInsights.Web.Models;
 
 namespace TechInsights.Web.Controllers
@@ -23,6 +25,13 @@ namespace TechInsights.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public IActionResult SendMessage(ContactForm form)
+        {
+            Thread.Sleep(2000);
+            return View("Index");
         }
     }
 }

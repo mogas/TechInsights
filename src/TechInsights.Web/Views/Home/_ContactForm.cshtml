@@ -1,34 +1,61 @@
-﻿<div class="row" data-aos="fade-up" data-aos-delay="100">
+﻿@model TechInsights.Entities.Models.ContactForm
 
-
-
+<div class="row" data-aos="fade-up" data-aos-delay="100">
     <div class="col-lg-12">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form id="contactForm" asp-controller="Home" asp-action="SendMessage"
+              data-ajax="true"
+              data-ajax-mode="POST" ,
+              data-ajax-success="contactFormSuccess"
+              data-ajax-complete="contactFormComplete"
+              data-ajax-failure="contactFormFail"
+              data-ajax-loading="#divloading"
+              class="contact-form">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
             <div class="form-row">
                 <div class="col form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
+                    <input asp-for="Name" type="text" class="form-control" placeholder="Your Name" />
+                    <span asp-validation-for="Name" class="validate"></span>
                 </div>
                 <div class="col form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                    <div class="validate"></div>
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Your Email" />
+                    <span asp-validation-for="Email" class="validate"></span>
                 </div>
+
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
+                <input asp-for="Subject" type="text" class="form-control" placeholder="Subject" />
+                <span asp-validation-for="Subject" class="validate"></span>
             </div>
             <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validate"></div>
+                <textarea asp-for="Message" class="form-control" placeholder="Message"></textarea>
+                <span asp-validation-for="Message" class="validate"></span>
             </div>
             <div class="mb-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
             </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-        </form>
-    </div>
+            <div class="text-center">
+                <input type="submit" value="Send message" />
+            </div>
 
+
+        </form>
+        <div id="divloading" class="loading"></div>
+
+        <div id="success-message-container" class="sent-message info-box">
+            &quot;Thanks for being  <strong class="text-purple">awesome!</strong>&quot; <i class="face face-happy"></i>
+            <p>
+                I've received your message and would like to thank you for reaching me out.
+            </p>
+        </div>
+
+        <div id="error-message-container" class="error-message info-box">
+            &quot;<strong class="text-purple"><i class="face face-sad"></i> Ooooops... <i class="face face-sad"></i></strong> If you’re reading this message, then something must be <strong class="text-purple"> broken</strong>&quot;
+            <p>
+                I'm sorry that you’ve experienced a problem, please check back soon to see if the problem has been resolved.
+            </p>
+        </div>
+
+    </div>
 </div>

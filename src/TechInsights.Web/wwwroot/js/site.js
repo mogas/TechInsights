@@ -102,7 +102,7 @@
     if ($(window).scrollTop() > 100) {
         $('#header').addClass('header-scrolled');
         $('#topbar').addClass('topbar-scrolled');
-    }    
+    }
 
     // Init AOS
     function aos_init() {
@@ -116,3 +116,20 @@
     });
 
 })(jQuery);
+
+function contactFormComplete(data) {
+    $('#divloading').delay(100).fadeOut('slow', function () {
+        $(this).hide();
+    });
+}
+
+function contactFormSuccess(data) {
+    $('#contactForm').hide();
+    $('#success-message-container').show();
+}
+
+function contactFormFail(data) {
+    $('#contactForm').hide();
+    $('#error-message-container').show();
+}
+

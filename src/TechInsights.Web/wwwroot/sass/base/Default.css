@@ -32,3 +32,13 @@ main {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+
+.face {
+  max-height: 32px;
+  padding: 0px !important; }
+  .face-happy {
+    max-width: 32px;
+    content: url("../../img/happy.png"); }
+  .face-sad {
+    max-width: 15px;
+    content: url("../../img/sad.png"); }

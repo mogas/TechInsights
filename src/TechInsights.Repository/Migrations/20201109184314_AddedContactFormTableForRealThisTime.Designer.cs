@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechInsights.Repository;
 
 namespace TechInsights.Repository.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20201109184314_AddedContactFormTableForRealThisTime")]
+    partial class AddedContactFormTableForRealThisTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,6 +53,27 @@ namespace TechInsights.Repository.Migrations
                     b.ToTable("ContactForm");
                 });
 
+            modelBuilder.Entity("TechInsights.Entities.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("TechInsights.Entities.Models.PortfolioClient", b =>
                 {
                     b.Property<int>("Id")
@@ -64,6 +87,9 @@ namespace TechInsights.Repository.Migrations
                     b.Property<string>("Client")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ClientImageId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -85,7 +111,16 @@ namespace TechInsights.Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientImageId");
+
                     b.ToTable("PortfolioClient");
+                });
+
+            modelBuilder.Entity("TechInsights.Entities.Models.PortfolioClient", b =>
+                {
+                    b.HasOne("TechInsights.Entities.Models.Image", "ClientImage")
+                        .WithMany()
+                        .HasForeignKey("ClientImageId");
                 });
 #pragma warning restore 612, 618
         }

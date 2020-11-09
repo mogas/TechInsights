@@ -14,11 +14,11 @@
 </head>
 <body>
     <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
-        <partial name="_SocialLinks" />
+        @await Html.PartialAsync("_SocialLinks")
     </div>
 
     <header id="header" class="fixed-top">
-        <partial name="_Navigation" />
+        @await Html.PartialAsync("_Navigation")
     </header>
 
     <main id="main">
@@ -26,13 +26,15 @@
     </main>
 
     <footer class="border-top footer text-muted">
-        <partial name="_FooterContent" />
+        @await Html.PartialAsync("_FooterContent")
     </footer>
 
     <div id="preloader"></div>
 
-    <partial name="_BottomScripts" />
+    @await Html.PartialAsync("_BottomScripts")
+
 
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>

@@ -6,6 +6,6 @@ namespace TechInsights.Entities
     {
         public int Id { get; set; }
 
-        public DateTime AddedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }
