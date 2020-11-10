@@ -1,12 +1,19 @@
-﻿@{
+﻿@model TechInsights.UI.Models.HomeViewModel
+
+@{
     ViewData["Title"] = "Home";
+    ViewData["homeActive"] = "active";
 }
 
 <partial name="_Hero" />
 
 <partial name="_About" />
 
-<partial name="_Contact" />
+<partial name="_News" />
+
+<partial name="_Testimonials" model="@Model?.Testimonials" />
+
+<partial name="_Contact" model="@Model?.ContactForm" />
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />

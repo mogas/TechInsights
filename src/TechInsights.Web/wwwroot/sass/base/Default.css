@@ -42,3 +42,9 @@ main {
   .face-sad {
     max-width: 15px;
     content: url("../../img/sad.png"); }
+
+.sitecore {
+  content: url("../../img/sitecore.png"); }
+
+.asp-net {
+  content: url("../../img/aspnet.png"); }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using TechInsights.Application.ContactForm;
+using TechInsights.Application.Testimonial;
 using TechInsights.Domain.Models;
 using TechInsights.UI.Models;
 
@@ -17,9 +19,16 @@ namespace TechInsights.UI.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index([FromServices] TestimonialService testimonialService)
         {
-            return View();
+            var testimonials = await testimonialService.GetTestimonies();
+
+            HomeViewModel model = new HomeViewModel()
+            {
+                Testimonials = testimonials
+            };
+
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -34,6 +43,8 @@ namespace TechInsights.UI.Controllers
             if (form != null && ModelState.IsValid)
             {
                 var status = await contactFormService.SendContactMessage(form);
+
+                Thread.Sleep(2000);
 
                 if (status)
                 {

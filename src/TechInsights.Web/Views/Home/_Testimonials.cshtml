@@ -1,0 +1,26 @@
+﻿@model IEnumerable<TechInsights.Domain.Models.Testimonial>
+
+@if (Model != null)
+{
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="owl-carousel testimonials-carousel">
+
+                @foreach (var testimonial in Model)
+                {
+                    <div class="testimonial-item">
+                        <img src="./img/anonymous_user.jpg" class="testimonial-img" alt="">
+                        <h3>@testimonial.Name</h3>
+                        <h4>@testimonial.Position</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            @testimonial.Testimony
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Threading.Tasks;
 using TechInsights.Database;
 
 namespace TechInsights.UI
@@ -56,14 +55,6 @@ namespace TechInsights.UI
 
             app.UseRouting();
 
-            app.UseStatusCodePages(context =>
-            {
-                var pathBase = context.HttpContext.Request.PathBase;
-                var endpoint = StatusCodeEndpoint(context.HttpContext.Response.StatusCode);
-                context.HttpContext.Response.Redirect(pathBase + endpoint);
-                return Task.CompletedTask;
-            });
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -73,12 +64,5 @@ namespace TechInsights.UI
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
-
-        private static string StatusCodeEndpoint(int code) =>
-        code switch
-        {
-            StatusCodes.Status404NotFound => "/not-found",
-            _ => "/",
-        };
     }
 }

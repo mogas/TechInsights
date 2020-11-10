@@ -10,7 +10,7 @@ using TechInsights.Database;
 namespace TechInsights.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201110143112_InitialMigration")]
+    [Migration("20201110161817_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,6 +88,30 @@ namespace TechInsights.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PortfolioClient");
+                });
+
+            modelBuilder.Entity("TechInsights.Domain.Models.Testimonial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Testimony")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Testimonial");
                 });
 #pragma warning restore 612, 618
         }

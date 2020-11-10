@@ -13,5 +13,7 @@ namespace TechInsights.Database
         public DbSet<PortfolioClient> PortfolioClient { get; set; }
 
         public DbSet<ContactForm> ContactForm { get; set; }
+
+        public DbSet<Testimonial> Testimonial { get; set; }
     }
 }
