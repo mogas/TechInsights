@@ -1,4 +1,4 @@
-﻿namespace TechInsights.Web
+﻿namespace TechInsights.UI
 {
     public static class Constants
     {

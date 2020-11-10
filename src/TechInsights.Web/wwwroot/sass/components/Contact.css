@@ -36,8 +36,7 @@
 
 .contact .error-message {
   display: none;
-  color: #ffffff;
-  background-color: #eee;
+  background: #ffffff;
   text-align: center;
   padding: 15px; }
 

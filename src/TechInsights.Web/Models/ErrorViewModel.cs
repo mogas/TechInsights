@@ -1,4 +1,4 @@
-namespace TechInsights.Web.Models
+namespace TechInsights.UI.Models
 {
     public class ErrorViewModel
     {

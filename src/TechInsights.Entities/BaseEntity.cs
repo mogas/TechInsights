@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TechInsights.Entities
+namespace TechInsights.Domain
 {
     public class BaseEntity
     {

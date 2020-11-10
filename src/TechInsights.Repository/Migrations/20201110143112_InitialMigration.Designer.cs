@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TechInsights.Repository;
+using TechInsights.Database;
 
-namespace TechInsights.Repository.Migrations
+namespace TechInsights.Database.Migrations
 {
-    [DbContext(typeof(RepositoryContext))]
-    [Migration("20201109184135_AddedContactFormTable")]
-    partial class AddedContactFormTable
+    [DbContext(typeof(ApplicationDbContext))]
+    [Migration("20201110143112_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace TechInsights.Repository.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TechInsights.Entities.Models.Image", b =>
+            modelBuilder.Entity("TechInsights.Domain.Models.ContactForm", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -31,18 +31,29 @@ namespace TechInsights.Repository.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Images");
+                    b.ToTable("ContactForm");
                 });
 
-            modelBuilder.Entity("TechInsights.Entities.Models.PortfolioClient", b =>
+            modelBuilder.Entity("TechInsights.Domain.Models.PortfolioClient", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,9 +66,6 @@ namespace TechInsights.Repository.Migrations
                     b.Property<string>("Client")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ClientImageId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -79,16 +87,7 @@ namespace TechInsights.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientImageId");
-
                     b.ToTable("PortfolioClient");
-                });
-
-            modelBuilder.Entity("TechInsights.Entities.Models.PortfolioClient", b =>
-                {
-                    b.HasOne("TechInsights.Entities.Models.Image", "ClientImage")
-                        .WithMany()
-                        .HasForeignKey("ClientImageId");
                 });
 #pragma warning restore 612, 618
         }

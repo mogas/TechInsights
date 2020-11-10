@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TechInsights.Entities\TechInsights.Entities.csproj" />
+    <ProjectReference Include="..\TechInsights.Entities\TechInsights.Domain.csproj" />
   </ItemGroup>
 
 </Project>

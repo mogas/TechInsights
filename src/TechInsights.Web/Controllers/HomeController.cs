@@ -2,21 +2,19 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using TechInsights.Entities.Models;
-using TechInsights.Services.Contact;
-using TechInsights.Web.Models;
+using TechInsights.Application.ContactForm;
+using TechInsights.Domain.Models;
+using TechInsights.UI.Models;
 
-namespace TechInsights.Web.Controllers
+namespace TechInsights.UI.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IContactFormService _contactFormService;
 
-        public HomeController(ILogger<HomeController> logger, IContactFormService contactFormService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _contactFormService = contactFormService;
         }
 
         public IActionResult Index()
@@ -31,13 +29,13 @@ namespace TechInsights.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage(ContactForm form)
+        public async Task<IActionResult> SendMessage(ContactForm form, [FromServices] ContactFormService contactFormService)
         {
             if (form != null && ModelState.IsValid)
             {
-                var result = await _contactFormService.AddContactForm(form);
+                var status = await contactFormService.SendContactMessage(form);
 
-                if (result)
+                if (status)
                 {
                     return View("Index");
                 }

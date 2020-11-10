@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TechInsights.Entities.Models;
-using TechInsights.Repository;
+using TechInsights.Domain.Interfaces;
+using TechInsights.Domain.Models;
 
-namespace TechInsights.Services.Portfolio
+namespace TechInsights.Database.Managers
 {
-    public class PortfolioService : IPortfolioService
+    public class PortfolioManager : IPortfolioManager
     {
         private readonly IRepositoryBase<PortfolioClient> _portfolioRepository;
 
-        public PortfolioService(IRepositoryBase<PortfolioClient> portfolioRepository)
+        public PortfolioManager(IRepositoryBase<PortfolioClient> portfolioRepository)
         {
             _portfolioRepository = portfolioRepository;
         }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TechInsights.Web.Controllers
+namespace TechInsights.UI.Controllers
 {
     public class BlogController : Controller
     {

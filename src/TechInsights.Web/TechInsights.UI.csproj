@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
@@ -26,12 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TechInsights.Repository\TechInsights.Repository.csproj" />
-    <ProjectReference Include="..\TechInsights.Services\TechInsights.Services.csproj" />
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="compilerconfig.json" />
+    <ProjectReference Include="..\TechInsights.Application\TechInsights.Application.csproj" />
+    <ProjectReference Include="..\TechInsights.Repository\TechInsights.Database.csproj" />
   </ItemGroup>
   
 </Project>

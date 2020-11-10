@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TechInsights.Entities.Models;
+using TechInsights.Domain.Models;
 
-namespace TechInsights.Repository
+namespace TechInsights.Database
 {
-    public class RepositoryContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public RepositoryContext(DbContextOptions options)
+        public ApplicationDbContext(DbContextOptions options)
             : base(options)
         {
         }

@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechInsights.Web", "src\TechInsights.Web\TechInsights.Web.csproj", "{8DACB24F-4B02-47FE-8BC5-73D5ED8894CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechInsights.UI", "src\TechInsights.Web\TechInsights.UI.csproj", "{8DACB24F-4B02-47FE-8BC5-73D5ED8894CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechInsights.Entities", "src\TechInsights.Entities\TechInsights.Entities.csproj", "{4A933A3C-B238-4D58-8AC8-90DE2B776242}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechInsights.Domain", "src\TechInsights.Entities\TechInsights.Domain.csproj", "{4A933A3C-B238-4D58-8AC8-90DE2B776242}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechInsights.Repository", "src\TechInsights.Repository\TechInsights.Repository.csproj", "{65B22614-E075-495D-A0CD-1A8994E2F329}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechInsights.Services", "src\TechInsights.Services\TechInsights.Services.csproj", "{3A18F19C-279C-4C16-AD31-FD200340F5C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechInsights.Database", "src\TechInsights.Repository\TechInsights.Database.csproj", "{65B22614-E075-495D-A0CD-1A8994E2F329}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{D194AA7B-FD1D-4E69-A6D9-422CAEF9D998}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A9A9F840-E327-4120-BC76-7FBC362399F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechInsights.Application", "src\TechInsights.Application\TechInsights.Application.csproj", "{2464D693-F8C0-4CAE-B348-307A9B70B1E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,13 +37,19 @@ Global
 		{65B22614-E075-495D-A0CD-1A8994E2F329}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B22614-E075-495D-A0CD-1A8994E2F329}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B22614-E075-495D-A0CD-1A8994E2F329}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A18F19C-279C-4C16-AD31-FD200340F5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A18F19C-279C-4C16-AD31-FD200340F5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A18F19C-279C-4C16-AD31-FD200340F5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A18F19C-279C-4C16-AD31-FD200340F5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2464D693-F8C0-4CAE-B348-307A9B70B1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2464D693-F8C0-4CAE-B348-307A9B70B1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2464D693-F8C0-4CAE-B348-307A9B70B1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2464D693-F8C0-4CAE-B348-307A9B70B1E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8DACB24F-4B02-47FE-8BC5-73D5ED8894CE} = {A9A9F840-E327-4120-BC76-7FBC362399F0}
+		{4A933A3C-B238-4D58-8AC8-90DE2B776242} = {A9A9F840-E327-4120-BC76-7FBC362399F0}
+		{65B22614-E075-495D-A0CD-1A8994E2F329} = {A9A9F840-E327-4120-BC76-7FBC362399F0}
+		{2464D693-F8C0-4CAE-B348-307A9B70B1E0} = {A9A9F840-E327-4120-BC76-7FBC362399F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC84F29B-85EF-4B5E-ADFC-1B3B13208225}

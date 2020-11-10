@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TechInsights.Repository;
+using TechInsights.Database;
 
-namespace TechInsights.Repository.Migrations
+namespace TechInsights.Database.Migrations
 {
-    [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ApplicationDbContext))]
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace TechInsights.Repository.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TechInsights.Entities.Models.ContactForm", b =>
+            modelBuilder.Entity("TechInsights.Domain.Models.ContactForm", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace TechInsights.Repository.Migrations
                     b.ToTable("ContactForm");
                 });
 
-            modelBuilder.Entity("TechInsights.Entities.Models.PortfolioClient", b =>
+            modelBuilder.Entity("TechInsights.Domain.Models.PortfolioClient", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

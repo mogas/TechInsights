@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TechInsights.Entities.Models
+namespace TechInsights.Domain.Models
 {
     public class PortfolioClient : BaseEntity
     {

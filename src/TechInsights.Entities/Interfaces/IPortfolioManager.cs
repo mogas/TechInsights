@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using TechInsights.Entities.Models;
+using TechInsights.Domain.Models;
 
-namespace TechInsights.Services.Portfolio
+namespace TechInsights.Domain.Interfaces
 {
-    public interface IPortfolioService
+    public interface IPortfolioManager
     {
         Task<IEnumerable<PortfolioClient>> GetAllPortfoliosAsync();
         Task<PortfolioClient> GetPortfolioByIdAsync(int id);

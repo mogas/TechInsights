@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace TechInsights.Web
+namespace TechInsights.UI
 {
     public class Program
     {
