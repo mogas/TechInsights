@@ -5,7 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 using TechInsights.Database;
+using TechInsights.UI.Infrastructure;
 
 namespace TechInsights.UI
 {
@@ -34,14 +36,29 @@ namespace TechInsights.UI
 
 
             services.AddControllersWithViews();
+
+
+            services.AddRouting(x =>
+            {
+                x.LowercaseUrls = true;
+                x.AppendTrailingSlash = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var localHostSslPort = 0;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                localHostSslPort = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("Properties/launchSettings.json")
+                    .Build()
+                    .GetSection("iisSettings")
+                    .GetSection("iisExpress")
+                    .GetValue<int>("sslPort");
             }
             else
             {
@@ -50,7 +67,11 @@ namespace TechInsights.UI
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
+
+            app.UseMiddleware<CanonicalUrlMiddleware>(localHostSslPort);
+
             app.UseCookiePolicy();
 
             app.UseRouting();
