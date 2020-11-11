@@ -1,19 +1,21 @@
-﻿@model TechInsights.UI.Models.HomeViewModel
-
+﻿
 @{
     ViewData["Title"] = "Home";
     ViewData["homeActive"] = "active";
 }
 
+
+
 <partial name="_Hero" />
 
 <partial name="_About" />
 
-<partial name="_News" />
+@await Component.InvokeAsync("News")
 
-<partial name="_Testimonials" model="@Model?.Testimonials" />
+@await Component.InvokeAsync("Testimonial")
 
-<partial name="_Contact" model="@Model?.ContactForm" />
+@await Component.InvokeAsync("ContactForm")
+
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
