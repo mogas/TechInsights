@@ -4,19 +4,29 @@ namespace TechInsights.UI.Extensions
 {
     public static class HttpContextExtensions
     {
+        private const string HttpsFormat = "https://{0}{1}{2}{3}";
+
         public static (bool, string) CanonicalUrl(this HttpContext context, int localhostSslPort)
         {
-            var host = context.Request.Host.Host;
-            var port = host == "localhost" ? localhostSslPort : context.Request.Host.Port ?? 0;
+            string host = context.Request.Host.Host;
 
-            var portString = port == 80 || port == 443 ? string.Empty : $":{port}";
+            int port = host == "localhost" ?
+                localhostSslPort :
+                context.Request.Host.Port ??
+                0;
 
-            var pathBase = context.Request.PathBase.HasValue ? context.Request.PathBase.Value : string.Empty;
+            string portString = port == 80 || port == 443 ?
+                string.Empty :
+                $":{port}";
 
-            var isCanonical = context.Request.IsHttps;
+            string pathBase = context.Request.PathBase.HasValue ?
+                context.Request.PathBase.Value :
+                string.Empty;
 
-            var path = pathBase + context.Request.Path.Value;
-            var pathLower = path.ToLower();
+            bool isCanonical = context.Request.IsHttps;
+
+            string path = pathBase + context.Request.Path.Value;
+            string pathLower = path.ToLower();
 
             isCanonical = isCanonical && path == pathLower;
 
@@ -26,11 +36,11 @@ namespace TechInsights.UI.Extensions
                 pathLower = pathLower.TrimEnd('/');
             }
 
-            var query = context.Request.QueryString.HasValue ? $"?{context.Request.QueryString.Value}" : string.Empty;
+            string query = context.Request.QueryString.HasValue ?
+                $"?{context.Request.QueryString.Value}" :
+                string.Empty;
 
-            const string httpsFormat = "https://{0}{1}{2}{3}";
-
-            return (isCanonical, string.Format(httpsFormat, host, portString, pathLower, query));
+            return (isCanonical, string.Format(HttpsFormat, host, portString, pathLower, query));
         }
     }
 }

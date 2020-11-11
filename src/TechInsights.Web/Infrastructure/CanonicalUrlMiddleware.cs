@@ -17,15 +17,14 @@ namespace TechInsights.UI.Infrastructure
 
         public async Task Invoke(HttpContext context)
         {
-            (var isCanonical, var url) = context.CanonicalUrl(_localHostSslPort);
+            (bool isCanonical, string url) = context.CanonicalUrl(_localHostSslPort);
 
             if (!isCanonical)
             {
                 context.Response.Redirect(url, true);
             }
 
-            await _next(context);
+            await _next(context).ConfigureAwait(false);
         }
     }
-
 }
