@@ -50,9 +50,13 @@
   {
     "outputFile": "wwwroot/sass/components/Testimonials.css",
     "inputFile": "wwwroot/sass/components/Testimonials.scss"
-  },  
+  },
   {
     "outputFile": "wwwroot/sass/components/News.css",
     "inputFile": "wwwroot/sass/components/News.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Blog.css",
+    "inputFile": "wwwroot/sass/components/Blog.scss"
   }
 ]

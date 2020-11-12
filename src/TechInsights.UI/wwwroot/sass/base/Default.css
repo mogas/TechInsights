@@ -2,8 +2,10 @@
   color: #330066; }
 
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444; }
+  font-family: "Roboto", sans-serif;
+  /*font-family: "Poppins", sans-serif;*/
+  color: #444444;
+  letter-spacing: 0.8px; }
 
 a {
   color: #330066; }

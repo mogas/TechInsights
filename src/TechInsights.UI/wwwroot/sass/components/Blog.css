@@ -1,0 +1,33 @@
+﻿.blog {
+  padding: 30px;
+  background: #ffffff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); }
+  .blog h1 {
+    font-size: 2em;
+    line-height: 1;
+    font-weight: 600;
+    color: #222222; }
+  .blog h2 {
+    font-size: 1.6em;
+    line-height: 1;
+    font-weight: 600;
+    color: #222222;
+    margin-bottom: 20px; }
+  .blog p {
+    margin-bottom: 2rem; }
+  .blog .entry-header {
+    display: block; }
+  .blog .entry-author {
+    color: #330066;
+    font-weight: 600; }
+  .blog .entry-meta {
+    font-size: 85%;
+    margin-top: .5em;
+    line-height: 1.5; }
+  .blog .entry-content {
+    margin-top: 1.7em; }
+  .blog .blog-image {
+    width: 100%;
+    height: auto; }
+  .blog .featured-image {
+    margin-top: 2em; }

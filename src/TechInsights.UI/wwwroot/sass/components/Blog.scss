@@ -1,0 +1,57 @@
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+.blog {
+    padding: 30px;
+    background: $color-white;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+
+
+    h1 {
+        font-size: $blog-title-font-size;
+        line-height: 1;
+        font-weight: 600;
+        color: $color-black;
+    }
+
+    h2 {
+        font-size: $blog-section-font-size;
+        line-height: 1;
+        font-weight: 600;
+        color: $color-black;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 2rem;
+    }   
+
+
+    .entry-header {
+        display: block;
+    }
+
+    .entry-author {
+        color: $color-theme;
+        font-weight: 600;
+    }
+
+    .entry-meta {
+        font-size: 85%;
+        margin-top: .5em;
+        line-height: 1.5;
+    }
+
+    .entry-content {
+        margin-top: 1.7em;
+    }
+
+    .blog-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .featured-image {
+        margin-top: 2em;
+    }
+}

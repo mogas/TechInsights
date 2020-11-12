@@ -5,7 +5,7 @@
       "wwwroot/sass/**/*.css"
     ],
     "minify": {
-      "enabled": false      
+      "enabled": false
     }
   },
   {
@@ -22,7 +22,6 @@
     "minify": {
       "enabled": true,
       "renameLocals": true
-    },
-    "sourceMap": false
-  }
+    }
+  }  
 ]
