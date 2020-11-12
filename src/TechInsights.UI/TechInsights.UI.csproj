@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TechInsights.Application\TechInsights.Application.csproj" />
-    <ProjectReference Include="..\TechInsights.Repository\TechInsights.Database.csproj" />
+    <ProjectReference Include="..\TechInsights.Database\TechInsights.Database.csproj" />
   </ItemGroup>
   
 </Project>
