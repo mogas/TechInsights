@@ -15,5 +15,7 @@ namespace TechInsights.Database
         public DbSet<ContactForm> ContactForm { get; set; }
 
         public DbSet<Testimonial> Testimonial { get; set; }
+
+        public DbSet<BlogPost> BlogPost { get; set; }
     }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechInsights.Domain.Models
+﻿namespace TechInsights.Domain.Models
 {
-    class BlogPost
+    public class BlogPost : BaseEntity
     {
+        public string Title { get; set; }
+        public string HtmlContent { get; set; }
     }
 }

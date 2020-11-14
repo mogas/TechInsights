@@ -27,6 +27,7 @@ namespace TechInsights.UI
             services.AddTransient<IPortfolioManager, PortfolioManager>();
             services.AddTransient<IContactFormManager, ContactFormManager>();
             services.AddTransient<ITestimonialManager, TestimonialManager>();
+            services.AddTransient<IBlogPostsManager, BlogPostsManager>();
         }
     }
 }

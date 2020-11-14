@@ -3,50 +3,62 @@
     ViewData["blogActive"] = "active";
 }
 
+@model IEnumerable<BlogPost>
+
 <section class="inner-page">
-    <div class="container">
-
-
-        <article class="blog">
-
-            <header class="entry-header">
-                <h1>Examples of Blogs – Inspiration for New Bloggers</h1>
-                <div class="entry-meta">
-                    by <span class="entry-author">Nuno Silva.</span>
-                </div>
-            </header>
-
-            <div class="featured-image ">
-                <img width="1200" height="645" src="https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog.jpg" class="blog-image" alt="examples of blogs" itemprop="image" sizes="(max-width: 1200px) 100vw, 1200px" srcset="https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog.jpg 1200w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-300x161.jpg 300w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-768x413.jpg 768w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-1024x550.jpg 1024w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-700x376.jpg 700w" data-ll-status="loaded"><noscript><img width="1200" height="645" src="https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog.jpg" class="attachment-full size-full" alt="examples of blogs" itemprop="image" srcset="https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog.jpg 1200w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-300x161.jpg 300w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-768x413.jpg 768w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-1024x550.jpg 1024w, https://makeawebsitehub.com/wp-content/uploads/2017/03/examples-of-blog-700x376.jpg 700w" sizes="(max-width: 1200px) 100vw, 1200px" /></noscript>
-            </div>
-            <div class="entry-content">
-                <p>
-                    My passion is to design powerful and scalable software/web solutions, ranging all ends of the development spectrum, including the implementation of innovative applications, services, frameworks, and APIs. Currently my primary focus is to develop Sitecore solutions which are scalable, maintainable and that meet the high standards the industry demands.
-                </p>
-                <h2>Want to Start Your Own Blog?</h2>
-                <p>
-                    My passion is to design powerful and scalable software/web solutions, ranging all ends of the development spectrum, including the implementation of innovative applications, services, frameworks, and APIs. Currently my primary focus is to develop Sitecore solutions which are scalable, maintainable and that meet the high standards the industry demands.
-                    <pre>
-                    <code class="language-csharp">
-[HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> SendMessage(ContactForm form, [FromServices] ContactFormService contactFormService)
-{
-    if (form != null && ModelState.IsValid)
+    @foreach (var blog in Model)
     {
-        var status = await contactFormService.SendContactMessage(form);
-        Thread.Sleep(2000);
-        if (status)
-        {
-            return ViewComponent("ContactForm");
-        }
-    }
-    return null;
-}</code>
-                    </pre>
-                </p>
-            </div>
 
-        </article>
-    </div>
+        <div class="container">
+
+            <article class="blog">
+
+                <header class="entry-header">
+                    <h1><a href="/blog/@blog.Id/@blog.Title.Replace(" ", "-")">@blog.Title</a></h1>
+                    <div class="entry-meta">
+                        <span>@blog.CreatedDate.ToString("dd/MM/yyy")</span>
+                    </div>
+                    <div class="entry-content">
+                        @Html.Raw(blog.HtmlContent.Substring(0, 100) + "...")
+                    </div>
+                </header>
+
+
+            </article>
+        </div>
+
+    }
 </section>
+
+
+
+@*
+
+
+                    TEMPLATE
+
+                    <p>
+                        My passion is to design powerful and scalable software/web solutions, ranging all ends of the development spectrum, including the implementation of innovative applications, services, frameworks, and APIs. Currently my primary focus is to develop Sitecore solutions which are scalable, maintainable and that meet the high standards the industry demands.
+                    </p>
+                    <h2>Want to Start Your Own Blog?</h2>
+                    <p>
+                        My passion is to design powerful and scalable software/web solutions, ranging all ends of the development spectrum, including the implementation of innovative applications, services, frameworks, and APIs. Currently my primary focus is to develop Sitecore solutions which are scalable, maintainable and that meet the high standards the industry demands.
+                        <pre>
+                        <code class="language-csharp">
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> SendMessage(ContactForm form, [FromServices] ContactFormService contactFormService)
+    {
+        if (form != null && ModelState.IsValid)
+        {
+            var status = await contactFormService.SendContactMessage(form);
+            Thread.Sleep(2000);
+            if (status)
+            {
+                return ViewComponent("ContactForm");
+            }
+        }
+        return null;
+    }</code>
+                        </pre>
+                    </p>*@

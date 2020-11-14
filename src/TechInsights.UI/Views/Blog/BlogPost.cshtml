@@ -1,0 +1,34 @@
+﻿@model BlogPost
+
+@if (Model != null)
+{
+
+    ViewData["Title"] = Model.Title;
+    ViewData["blogActive"] = "active";
+
+
+
+    <section class="inner-page">
+
+        <div class="container">
+
+            <article class="blog">
+
+                <header class="entry-header">
+                    <h1>@Model.Title</h1>
+                    <div class="entry-meta">
+                        by <span class="entry-author">Nuno Silva.</span>
+                        <span>@Model.CreatedDate.ToString("dd/MM/yyy")</span>
+                    </div>
+                </header>
+
+                <div class="entry-content">
+                    @Html.Raw(Model.HtmlContent)
+                </div>
+
+            </article>
+        </div>
+
+
+    </section>
+}
