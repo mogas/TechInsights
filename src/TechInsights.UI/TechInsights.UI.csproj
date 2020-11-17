@@ -26,6 +26,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="WebEssentials.AspNetCore.OutputCaching" Version="1.0.28" />
+    <PackageReference Include="WebEssentials.AspNetCore.StaticFilesWithCache" Version="1.0.3" />
+    <PackageReference Include="WebMarkupMin.AspNetCore3" Version="2.8.15" />
   </ItemGroup>
 
   <ItemGroup>

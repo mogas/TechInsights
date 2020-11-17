@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 using TechInsights.Database;
 using TechInsights.UI.Infrastructure;
+using WebMarkupMin.AspNetCore3;
 
 namespace TechInsights.UI
 {
@@ -50,8 +51,11 @@ namespace TechInsights.UI
         {
             var localHostSslPort = 0;
 
+
             if (env.IsDevelopment())
             {
+                //WebEssentials.AspNetCore.StaticFilesWithCache
+                app.UseStaticFiles();
                 app.UseDeveloperExceptionPage();
 
                 localHostSslPort = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("Properties/launchSettings.json")
@@ -62,17 +66,30 @@ namespace TechInsights.UI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Shared/Error");
                 app.UseHsts();
+                app.UseStaticFilesWithCache();
+                app.UseWebMarkupMin();
             }
+
+            app.Use(
+                (context, next) =>
+                {
+                    context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+                    return next();
+                });
+
+            app.UseStatusCodePagesWithReExecute("/Shared/Error");
+
 
             app.UseHttpsRedirection();
 
-            app.UseStaticFiles();
 
             app.UseMiddleware<CanonicalUrlMiddleware>(localHostSslPort);
 
-            app.UseCookiePolicy();
+            //WebEssentials.AspNetCore.OutputCaching
+            app.UseOutputCaching();
+
 
             app.UseRouting();
 

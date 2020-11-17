@@ -5,6 +5,9 @@ using TechInsights.Application;
 using TechInsights.Database;
 using TechInsights.Database.Managers;
 using TechInsights.Domain.Interfaces;
+using WebEssentials.AspNetCore.OutputCaching;
+using WebMarkupMin.AspNetCore3;
+using WebMarkupMin.Core;
 
 namespace TechInsights.UI
 {
@@ -22,6 +25,32 @@ namespace TechInsights.UI
             {
                 services.AddTransient(service);
             }
+
+            // Output caching (https://github.com/madskristensen/WebEssentials.AspNetCore.OutputCaching)
+            services.AddOutputCaching(
+                options =>
+                {
+                    options.Profiles["default"] = new OutputCacheProfile
+                    {
+                        Duration = 3600
+                    };
+                });
+
+            // HTML minification (https://github.com/Taritsyn/WebMarkupMin)
+            services
+                .AddWebMarkupMin(
+                    options =>
+                    {
+                        options.AllowMinificationInDevelopmentEnvironment = true;
+                        options.DisablePoweredByHttpHeaders = true;
+                    })
+                .AddHtmlMinification(
+                    options =>
+                    {
+                        options.MinificationSettings.RemoveOptionalEndTags = false;
+                        options.MinificationSettings.WhitespaceMinificationMode = WhitespaceMinificationMode.Safe;
+                    });
+
 
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddTransient<IPortfolioManager, PortfolioManager>();

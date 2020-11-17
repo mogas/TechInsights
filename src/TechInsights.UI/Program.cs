@@ -14,7 +14,8 @@ namespace TechInsights.UI
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()
+                              .ConfigureKestrel(options => options.AddServerHeader = false);
                 });
     }
 }
