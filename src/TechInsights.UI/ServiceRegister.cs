@@ -53,6 +53,7 @@ namespace TechInsights.UI
 
 
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+            services.AddSingleton<ICacheService, CacheService>();
             services.AddTransient<IPortfolioManager, PortfolioManager>();
             services.AddTransient<IContactFormManager, ContactFormManager>();
             services.AddTransient<ITestimonialManager, TestimonialManager>();

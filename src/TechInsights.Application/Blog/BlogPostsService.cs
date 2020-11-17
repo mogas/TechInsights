@@ -9,20 +9,27 @@ namespace TechInsights.Application.Blog
     public class BlogPostsService
     {
         private readonly IBlogPostsManager _blogPostsManager;
+        private readonly ICacheService _cacheService;
 
-        public BlogPostsService(IBlogPostsManager blogPostsManager)
+        public BlogPostsService(IBlogPostsManager blogPostsManager, ICacheService cacheService)
         {
             _blogPostsManager = blogPostsManager;
+            _cacheService = cacheService;
         }
 
         public Task<IEnumerable<BlogPost>> GetAllAsync()
         {
-            return _blogPostsManager.GetAllAsync();
+            return _cacheService.GetOrCreateAsync<IEnumerable<BlogPost>>("PostsAll", () => _blogPostsManager.GetAllAsync());
         }
 
-        public Task<BlogPost> GetById(int id)
+        public Task<BlogPost> GetByIdAsync(int id)
         {
-            return _blogPostsManager.GetByIdAsync(id);
+            return _cacheService.GetOrCreateAsync<BlogPost>($"Post-{id}", () => _blogPostsManager.GetByIdAsync(id));
+        }
+
+        public Task<BlogPost> GetBySlugAsync(string slug)
+        {
+            return _cacheService.GetOrCreateAsync<BlogPost>($"Post-{slug}", () => _blogPostsManager.GetBySlugAsync(slug));
         }
     }
 }

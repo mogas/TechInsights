@@ -25,7 +25,8 @@
     margin-top: .5em;
     line-height: 1.5; }
   .blog .entry-content {
-    margin-top: 1.7em; }
+    margin-top: 1.7em;
+    word-wrap: break-word; }
   .blog .blog-image {
     width: 100%;
     height: auto; }

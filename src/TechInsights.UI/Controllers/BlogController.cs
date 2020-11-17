@@ -16,18 +16,20 @@ namespace TechInsights.UI.Controllers
 
 
         [HttpGet]
+        [OutputCache(Profile = "default")]
         public async Task<IActionResult> Index()
         {
             var result = await _blogPostsService.GetAllAsync();
             return View(result);
         }
 
-        [HttpGet("{postId}/{name?}")]
-        public async Task<IActionResult> BlogPost(int postId)
+        [Route("/blog/{slug?}")]
+        [OutputCache(Profile = "default")]
+        public async Task<IActionResult> BlogPost(string slug)
         {
-            var result = await _blogPostsService.GetById(postId);
+            var result = await _blogPostsService.GetBySlugAsync(slug);
 
-            return View(result);
+            return result == null ? this.NotFound() : (IActionResult)this.View(result);
         }
     }
 }

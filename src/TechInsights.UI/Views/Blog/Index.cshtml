@@ -14,7 +14,7 @@
             <article class="blog">
 
                 <header class="entry-header">
-                    <h1><a href="/blog/@blog.Id/@blog.Title.Replace(" ", "-")">@blog.Title</a></h1>
+                    <h1><a href="@blog.GetEncodedLink("blog")">@blog.Title</a></h1>
                     <div class="entry-meta">
                         <span>@blog.CreatedDate.ToString("dd/MM/yyy")</span>
                     </div>

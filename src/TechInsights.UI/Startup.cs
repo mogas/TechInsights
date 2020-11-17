@@ -44,6 +44,8 @@ namespace TechInsights.UI
                 x.LowercaseUrls = true;
                 x.AppendTrailingSlash = false;
             });
+
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

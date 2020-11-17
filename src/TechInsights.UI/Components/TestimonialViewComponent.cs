@@ -16,7 +16,7 @@ namespace TechInsights.UI.Components
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var testimonials = await _testimonialService.GetTestimonies().ConfigureAwait(false);
+            var testimonials = await _testimonialService.GetTestimonies();
 
             return View(testimonials);
         }

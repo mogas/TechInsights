@@ -14,6 +14,7 @@ namespace TechInsights.UI.Controllers
             _logger = logger;
         }
 
+        [OutputCache(Profile = "default")]
         public IActionResult Index()
         {
 

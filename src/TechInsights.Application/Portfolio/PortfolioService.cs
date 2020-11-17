@@ -9,15 +9,17 @@ namespace TechInsights.Application.Portfolio
     public class PortfolioService
     {
         private readonly IPortfolioManager _portfolioManager;
+        private readonly ICacheService _cacheService;
 
-        public PortfolioService(IPortfolioManager portfolioManager)
+        public PortfolioService(IPortfolioManager portfolioManager, ICacheService cacheService)
         {
             _portfolioManager = portfolioManager;
+            _cacheService = cacheService;
         }
 
         public Task<IEnumerable<PortfolioClient>> GetPortfolios()
         {
-            return _portfolioManager.GetAllPortfoliosAsync();
+            return _cacheService.GetOrCreateAsync<IEnumerable<PortfolioClient>>("PortfolioAll", () => _portfolioManager.GetAllPortfoliosAsync());
         }
     }
 }

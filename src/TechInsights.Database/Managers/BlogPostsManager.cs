@@ -24,5 +24,10 @@ namespace TechInsights.Database.Managers
         {
             return await _blogPostRepository.FindByCondition(x => x.Id.Equals(id)).FirstOrDefaultAsync();
         }
+
+        public async Task<BlogPost> GetBySlugAsync(string slug)
+        {
+            return await _blogPostRepository.FindByCondition(x => x != null && !string.IsNullOrWhiteSpace(x.Slug) && x.Slug.Equals(slug)).FirstOrDefaultAsync();
+        }
     }
 }

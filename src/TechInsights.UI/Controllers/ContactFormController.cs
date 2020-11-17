@@ -8,8 +8,7 @@ namespace TechInsights.UI.Controllers
 {
     public class ContactFormController : Controller
     {
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost, AutoValidateAntiforgeryToken]
         public async Task<IActionResult> SendMessage(ContactForm form, [FromServices] ContactFormService contactFormService)
         {
             if (form != null && ModelState.IsValid)

@@ -17,5 +17,6 @@ namespace TechInsights.Database
         public DbSet<Testimonial> Testimonial { get; set; }
 
         public DbSet<BlogPost> BlogPost { get; set; }
+        public DbSet<BlogPostComment> BlogPostComment { get; set; }
     }
 }
