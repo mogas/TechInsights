@@ -13,9 +13,11 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\js\vendor.bundle.min.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\vendor.bundle.min.js" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\prism\prism.min.css" />
   </ItemGroup>
 
@@ -33,6 +35,7 @@
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\js\vendor.bundle.min.js" />
   </ItemGroup>
 
   <ItemGroup>

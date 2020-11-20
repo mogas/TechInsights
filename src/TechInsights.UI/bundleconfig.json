@@ -15,6 +15,17 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/css/vendor.bundle.min.css",
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "wwwroot//lib/aos/aos.min.css",
+      "wwwroot/lib/owl.carousel/assets/owl.carousel.min.css"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
       "wwwroot/js/site.js"
@@ -23,5 +34,29 @@
       "enabled": true,
       "renameLocals": true
     }
-  }  
+  },
+  {
+    "outputFileName": "wwwroot/js/jquery.validations.bundle.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery-unobtrusive-ajax/jquery.unobtrusive-ajax.min.js",
+      "wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/vendor.bundle.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/dist/jquery.min.js",
+      "wwwroot/lib/aos/aos.min.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "wwwroot/lib/owl.carousel/owl.carousel.min.js"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  }
+
 ]

@@ -109,7 +109,13 @@ namespace TechInsights.UI
             app.Use(
                 (context, next) =>
                 {
-                    context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+                    context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+                    context.Response.Headers.Add("X-Xss-Protection", "1; mode=block");
+                    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+                    context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+                    context.Response.Headers.Add("X-Permitted-Cross-Domain-Policies", "none");
+                    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'");
+
                     return next();
                 });
 

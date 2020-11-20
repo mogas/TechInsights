@@ -8,7 +8,7 @@
             <article id="@comment.Id" class="comment" itemprop="comment" itemscope itemtype="http://schema.org/Comment">
                 <h3>
                     <time datetime="@comment.PubDate.ToString("s")" itemprop="datePublished">
-                        <a href="#@comment.Id" title="Permalink (#@comment.Id)">@comment.PubDate.ToString("MMMM d, yyyy")</a>
+                        <a href="#@comment.Id" title="Permalink (#@comment.Id)">@comment.PubDate.ToString("MMMM d, yyyy 'at' HH:mm")</a>
                     </time>
                 </h3>
 
@@ -16,7 +16,7 @@
 
                 <div class="content">
                     <p itemprop="text">@comment.Content</p>
-                    <span itemprop="name">@comment.Author</span>
+                    <span itemprop="name"><strong class="text-purple">by</strong> @comment.Author</span>
                 </div>
             </article>
         }
