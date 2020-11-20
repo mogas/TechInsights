@@ -25,6 +25,18 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto", sans-serif;
 }
 
+h1 {
+    font-size: $font-size-h1;
+}
+
+h2 {
+    font-size: $font-size-h2;
+}
+
+.v-separator {
+    margin: 0 2px;
+}
+
 main {
     margin-top: 134px;
 

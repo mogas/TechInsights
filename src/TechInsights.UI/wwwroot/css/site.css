@@ -17,6 +17,15 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif; }
 
+h1 {
+  font-size: 1.7em; }
+
+h2 {
+  font-size: 1.3em; }
+
+.v-separator {
+  margin: 0 2px; }
+
 main {
   margin-top: 134px; }
   @media only screen and (max-width: 959px) {
@@ -92,12 +101,10 @@ main {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px; }
   .blog h1 {
-    font-size: 2em;
     line-height: 1;
     font-weight: 600;
     color: #222222; }
   .blog h2 {
-    font-size: 1.6em;
     line-height: 1;
     font-weight: 600;
     color: #222222;
@@ -110,12 +117,18 @@ main {
     color: #330066;
     font-weight: 600; }
   .blog .entry-meta {
-    font-size: 85%;
+    font-size: 75%;
     margin-top: .5em;
-    line-height: 1.5; }
+    line-height: 1.5;
+    color: #777777; }
   .blog .entry-content {
     margin-top: 1.7em;
     word-wrap: break-word; }
+  .blog .entry-continue {
+    margin-top: 1.7em; }
+  .blog .more-link {
+    margin-right: 5px;
+    font-size: 14px; }
   .blog .blog-image {
     width: 100%;
     height: auto; }
@@ -161,40 +174,52 @@ main {
   .breadcrumbs ol li {
     display: inline-block; } }
 
-.comment {
-  margin-top: 1.5em; }
-  .comment h1 {
-    font-size: 2em;
-    line-height: 1;
-    font-weight: 600;
-    color: #222222; }
-  .comment h2 {
-    font-size: 1.6em;
-    line-height: 1;
-    font-weight: 600;
-    color: #222222;
-    margin-bottom: 20px; }
-  .comment h3 {
-    font-size: 1em;
-    line-height: 1;
-    font-weight: normal;
-    color: #222222;
-    margin-bottom: 20px;
-    text-align: right; }
-  .comment .content {
+.categories {
+  list-style: none;
+  display: inline;
+  padding: 0; }
+  .categories li {
+    display: inline-block; }
+  .categories a {
+    color: #330066;
+    font-weight: bolder;
+    text-decoration: underline; }
+  .categories li:not(:first-child):not(:last-child):after {
+    content: ", "; }
+
+.comment-container {
+  max-width: 80%;
+  margin: 0 auto; }
+  .comment-container .comment {
+    margin-top: 1.5em;
     background: #ffffff;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    padding: .5em; }
-    .comment .content p {
+    padding: .5em 30px .5em 30px; }
+    .comment-container .comment h1 {
+      line-height: 1;
+      font-weight: 600;
+      color: #222222; }
+    .comment-container .comment h2 {
+      line-height: 1;
+      font-weight: 600;
+      color: #222222;
+      margin-bottom: 20px; }
+    .comment-container .comment h3 {
+      font-size: 1em;
+      line-height: 1;
+      font-weight: normal;
+      color: #222222;
+      text-align: right; }
+    .comment-container .comment .content p {
       white-space: pre-wrap;
       margin-bottom: .5em; }
-    .comment .content span {
+    .comment-container .comment .content span {
       font-size: .8em;
       font-weight: bold; }
-  .comment textarea {
-    padding: 5px; }
-  .comment time {
-    font-size: .8em; }
+    .comment-container .comment textarea {
+      padding: 5px; }
+    .comment-container .comment time {
+      font-size: .8em; }
 
 .contact .info-box {
   color: #444444;
@@ -799,6 +824,17 @@ section {
 @media (min-width: 1024px) {
   .section-title p {
     width: 50%; } }
+
+.socialsharing {
+  text-align: center; }
+  .socialsharing a {
+    display: inline-block;
+    padding: .7em;
+    line-height: 0;
+    margin-bottom: 2em; }
+  .socialsharing svg {
+    width: 24px;
+    height: 24px; }
 
 /*--------------------------------------------------------------
 # Testimonials

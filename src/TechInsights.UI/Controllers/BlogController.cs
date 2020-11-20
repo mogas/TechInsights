@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using TechInsights.Application.Services.Blog;
@@ -43,11 +44,11 @@ namespace TechInsights.UI.Controllers
                 BlogPost = result,
                 BlogPostComments = new BlogPostCommentsViewModel()
                 {
-                    Comments = result.Comments,
-                    BlogPostId = result.Id,
+                    Comments = result?.Comments,
+                    BlogPostId = result?.Id ?? 0,
                     CommentForm = new BlogPostComment()
                     {
-                        BlogPostId = result.Id
+                        BlogPostId = result?.Id ?? 0
                     }
                 }
             };
@@ -61,7 +62,12 @@ namespace TechInsights.UI.Controllers
         {
             var result = await _blogPostsService.GetByCategoryAsync(category);
 
-            return this.View("~/Views/Blog/Index.cshtml", result);
+            var viewModel = new BlogViewModel()
+            {
+                BlogPosts = result
+            };
+
+            return this.View("~/Views/Blog/Index.cshtml", viewModel);
         }
 
         [HttpPost, AutoValidateAntiforgeryToken]
@@ -75,7 +81,7 @@ namespace TechInsights.UI.Controllers
 
                 if (result)
                 {
-                    return PartialView("_CommentsForm");
+                    return Json(JsonSerializer.Serialize(comment));
                 }
             }
 

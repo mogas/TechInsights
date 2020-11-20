@@ -23,9 +23,9 @@ namespace TechInsights.Domain.Models
 
         public string Slug { get; set; } = string.Empty;
 
-        public string GetLink(string blogPageName) => $"/{blogPageName }/{this.Slug}/";
+        public string GetLink() => $"/blog/{this.Slug}/";
 
-        public string GetEncodedLink(string blogPageName) => $"/{blogPageName}/{System.Net.WebUtility.UrlEncode(this.Slug)}/";
+        public string GetEncodedLink() => $"/blog/{System.Net.WebUtility.UrlEncode(this.Slug)}/";
 
     }
 }

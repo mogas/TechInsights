@@ -1,0 +1,22 @@
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+.categories {
+    list-style: none;
+    display: inline;
+    padding: 0;
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        color: $color-theme;
+        font-weight: bolder;
+        text-decoration: underline;
+    }
+
+    li:not(:first-child):not(:last-child):after {
+        content: ", ";
+    }
+}

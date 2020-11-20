@@ -25,6 +25,7 @@ namespace TechInsights.Database.Managers
                 .FindAll()
                 .Include(i => i.Comments)
                 .Include(i => i.Categories)
+                .OrderBy(i => i.LastModified)
                 .ToListAsync();
         }
 
@@ -34,6 +35,7 @@ namespace TechInsights.Database.Managers
                 .FindByCondition(x => x.Categories != null && x.Categories.Any(y => y.Title.Equals(category)))
                 .Include(i => i.Comments)
                 .Include(i => i.Categories)
+                .OrderBy(i => i.LastModified)
                 .ToListAsync();
         }
 
@@ -43,6 +45,7 @@ namespace TechInsights.Database.Managers
                 .FindByCondition(x => x.Id.Equals(id))
                 .Include(i => i.Comments)
                 .Include(i => i.Categories)
+                .OrderBy(i => i.LastModified)
                 .FirstOrDefaultAsync();
         }
 
@@ -52,6 +55,7 @@ namespace TechInsights.Database.Managers
                 .FindByCondition(x => x != null && !string.IsNullOrWhiteSpace(x.Slug) && x.Slug.Equals(slug))
                 .Include(i => i.Comments)
                 .Include(i => i.Categories)
+                .OrderBy(i => i.LastModified)
                 .FirstOrDefaultAsync();
         }
 

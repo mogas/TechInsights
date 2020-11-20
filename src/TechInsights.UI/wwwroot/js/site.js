@@ -144,6 +144,26 @@ function contactFormFail(data) {
 }
 
 function commentsFormSuccess(data) {    
+    var jsonResponse = JSON.parse(data);    
+    var convertedDate = new Date(jsonResponse.PubDate);
+    var month = convertedDate.toLocaleDateString('default', { month: 'long' });
+    var day = convertedDate.getDay();
+    var year = convertedDate.getFullYear();
+    var pubDate = month + ' ' + day + ', ' + year;
+    
+    var codeBlock = '<article id="' + jsonResponse.Id + '" class="comment" itemprop="comment" itemscope itemtype="http://schema.org/Comment">' +
+        '<h3>' +
+        '<time datetime="' + jsonResponse.PubDate + '" itemprop = "datePublished" >' +
+        '<a href="#' + jsonResponse.Id + '" title="Permalink (#' + jsonResponse.Id + ')">' + pubDate + '</a>' +
+        '</time > ' +
+        '</h3 > ' +
+        '<div class="content">' +
+        '<p itemprop="text">' + jsonResponse.Content + '</p>' +
+        '<span itemprop="name">' + jsonResponse.Author + '</span>' +
+        '</div>' +
+        '</article >';
+        
+    $(codeBlock).insertAfter("#commentsTitle"); 
     $("#commentForm")[0].reset();
     $('#success-message-container').show();
 }
@@ -151,3 +171,4 @@ function commentsFormSuccess(data) {
 function commentsFormFail(data) {    
     $('#error-message-container').show();
 }
+

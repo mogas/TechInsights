@@ -97,6 +97,13 @@ namespace TechInsights.UI
                 app.UseStaticFilesWithCache();
                 app.UseWebMarkupMin();
                 app.UseOutputCaching();
+
+                // TODO: Remove this line before moving to production
+                localHostSslPort = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("Properties/launchSettings.json")
+                   .Build()
+                   .GetSection("iisSettings")
+                   .GetSection("iisExpress")
+                   .GetValue<int>("sslPort");
             }
 
             app.Use(

@@ -26,7 +26,29 @@
                     @Html.Raw(Model.BlogPost.HtmlContent)
                 </div>
 
+                <footer>
+                    @if (Model.BlogPost.Categories.Any())
+                    {
+                        <ul class="categories">
+                            <li> Posted in </li>
+                            @foreach (var cat in Model.BlogPost.Categories)
+                            {
+                                <li itemprop="articleSection">
+                                    <a asp-controller="Blog" asp-action="Category" asp-route-category="@cat.Title.ToLowerInvariant()" asp-route-page="">
+                                        @cat.Title
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+
+                </footer>
+
+                @{
+                    await Html.RenderPartialAsync("_SocialShare", Model.BlogPost.Title);
+                }
             </article>
+
 
             @{
                 await Html.RenderPartialAsync("_Comments", Model.BlogPostComments);

@@ -9,14 +9,12 @@
 
 
     h1 {
-        font-size: $blog-title-font-size;
         line-height: 1;
         font-weight: 600;
         color: $color-black;
     }
 
     h2 {
-        font-size: $blog-section-font-size;
         line-height: 1;
         font-weight: 600;
         color: $color-black;
@@ -38,14 +36,24 @@
     }
 
     .entry-meta {
-        font-size: 85%;
+        font-size: 75%;
         margin-top: .5em;
         line-height: 1.5;
+        color: $color-grey-light-2;
     }
 
     .entry-content {
         margin-top: 1.7em;
         word-wrap: break-word;
+    }
+
+    .entry-continue {
+        margin-top: 1.7em;
+    }
+
+    .more-link {
+        margin-right: 5px;
+        font-size: 14px;
     }
 
     .blog-image {

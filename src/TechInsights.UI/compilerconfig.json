@@ -70,5 +70,13 @@
   {
     "outputFile": "wwwroot/sass/components/Forms.css",
     "inputFile": "wwwroot/sass/components/Forms.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/SocialShare.css",
+    "inputFile": "wwwroot/sass/components/SocialShare.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Categories.css",
+    "inputFile": "wwwroot/sass/components/Categories.scss"
   }
 ]

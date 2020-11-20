@@ -14,16 +14,21 @@
             <article class="blog">
 
                 <header class="entry-header">
-                    <h1><a href="@blog.GetEncodedLink("blog")">@blog.Title</a></h1>
+                    <h1><a href="@blog.GetEncodedLink()">@blog.Title</a></h1>
                     <div class="entry-meta">
                         <time datetime="@blog.LastModified.ToString("s")" itemprop="dateModified">@blog.LastModified.ToString("MMMM  dd, yyyy")</time>
-                        <span>
-                            @blog.Comments.Count Comments
-                        </span>
+
+                        <span>|</span>
+
+                        <a href="@blog.GetEncodedLink()#comments" itemprop="discussionUrl" title="Navi">
+                            <span itemprop="commentCount">@blog.Comments.Count</span> @(@blog.Comments.Count == 1 ? "comment" : "comments")
+                        </a>
+
                         @if (@blog.Categories.Any())
                         {
+                            <span>|</span>
                             <ul class="categories">
-                                <li> Posted in </li>
+                                <li> posted in </li>
                                 @foreach (var category in blog.Categories)
                                 {
                                     <li itemprop="articleSection">
@@ -35,6 +40,11 @@
                     </div>
                     <div class="entry-content">
                         @blog.Excerpt
+                    </div>
+                    <div class="entry-continue">
+                        <a class="more-link" href="@blog.GetEncodedLink()">
+                            <i class="fa fa-arrow-circle-right"></i> Read more...
+                        </a>
                     </div>
                 </header>
 
