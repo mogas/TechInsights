@@ -28,7 +28,8 @@
         public static class Routes
         {
             public const string BlogPost = "/blog/{slug?}";
-            public const string BlogPostByCategory = "blog/category/{category}/{page:int?}";
+            public const string BlogPostByCategory = "/blog/category/{category}/{page:int?}";
+            public const string BlogAddComment = "/blog/comment/{postId}";
         }
     }
 }

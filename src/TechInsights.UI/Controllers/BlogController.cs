@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TechInsights.Application.Services.Blog;
+using TechInsights.Domain.Models;
 
 namespace TechInsights.UI.Controllers
 {
@@ -39,6 +40,16 @@ namespace TechInsights.UI.Controllers
             var result = await _blogPostsService.GetByCategoryAsync(category);
 
             return this.View("~/Views/Blog/Index.cshtml", result);
+        }
+
+        [Route(Constants.Routes.BlogAddComment)]
+        [OutputCache(Profile = "default")]
+        [HttpPost]
+        public async Task<IActionResult> AddComment(string postId, BlogPostComment comment)
+        {
+
+
+            return this.View("~/Views/Blog/Index.cshtml");
         }
     }
 }

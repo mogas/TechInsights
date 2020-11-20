@@ -27,14 +27,22 @@
                 </div>
 
             </article>
+
+            @{
+                await Html.RenderPartialAsync("_Comments", Model);
+            }
+
         </div>
 
 
     </section>
 
-    @section Preload {
+    @section TopStyles {
 
-        <link rel="preload" href="~/lib/prism/prism.scss" as="style" />
+        <link rel="stylesheet" href="~/lib/prism//prism.min.css" />
+    }
+
+    @section Scripts{
         <script type="text/javascript" src="~/lib/prism/prism.min.js"></script>
     }
 }

@@ -1,0 +1,66 @@
+﻿@model BlogPost
+
+<section id="comments">
+    <div class="container">
+        <h2>Comments</h2>
+        @foreach (var comment in Model.Comments)
+        {
+            <article id="@comment.Id" class="comment" itemprop="comment" itemscope itemtype="http://schema.org/Comment">
+                <h3>
+                    <time datetime="@comment.PubDate.ToString("s")" itemprop="datePublished">
+                        <a href="#@comment.Id" title="Permalink (#@comment.Id)">@comment.PubDate.ToString("MMMM d, yyyy")</a>
+                    </time>
+                </h3>
+
+
+
+                <div class="content">
+                    <p itemprop="text">@comment.Content</p>
+                    <span itemprop="name">@comment.Author</span>
+                </div>
+            </article>
+        }
+
+        @if (Model.Comments.Count == 0)
+        {
+            <p>Be the first to post a comment</p>
+        }
+
+        <form method="post" asp-controller="Blog" asp-action="AddComment" asp-route-postid="@Model.Id"
+              data-ajax="true"
+              data-ajax-mode="POST"
+              data-ajax-loading="#divloading"
+              class="comment-form">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <h3>Post a comment</h3>
+            <br />
+
+
+            <label for="content">Comment</label>
+
+            <div class="form-group">
+                <textarea id="content" name="content" rows="5" cols="100" required class="form-control" placeholder="Enter your comment here..."></textarea>
+            </div>
+
+
+            <div class="form-group">
+                <input id="author" name="author" type="text" class="form-control" placeholder="Your name" />
+            </div>
+
+            <div class="form-group">
+                <input id="email" name="email" type="email" class="form-control" placeholder="Your email" required />
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="Post comment" />
+            </div>
+
+        </form>
+
+        <noscript>
+            <br />
+            <p>Enable JavaScript to post comments on this blog.</p>
+        </noscript>
+
+    </div>
+</section>

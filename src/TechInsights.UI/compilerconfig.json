@@ -58,5 +58,13 @@
   {
     "outputFile": "wwwroot/sass/components/Blog.css",
     "inputFile": "wwwroot/sass/components/Blog.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Comment.css",
+    "inputFile": "wwwroot/sass/components/Comment.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/abstracts/_variables.css",
+    "inputFile": "wwwroot/sass/abstracts/_variables.scss"
   }
 ]
