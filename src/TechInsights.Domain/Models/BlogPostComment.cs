@@ -15,6 +15,9 @@ namespace TechInsights.Domain.Models
         public string Email { get; set; }
 
         [Required]
+        public int BlogPostId { get; set; }
+
+        [Required]
         public DateTime PubDate { get; set; } = DateTime.UtcNow;
 
     }

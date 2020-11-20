@@ -1,0 +1,67 @@
+﻿.form {
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
+  padding: 30px; }
+
+.form .validate {
+  color: #FF0000;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px; }
+
+.error-message {
+  display: none;
+  background: #ffffff;
+  text-align: center;
+  padding: 15px; }
+
+.form .error-message br + br {
+  margin-top: 25px; }
+
+.sent-message {
+  display: none;
+  background: #ffffff;
+  text-align: center;
+  padding: 15px; }
+
+.form .loading {
+  display: none;
+  background: #ffffff;
+  text-align: center;
+  padding: 15px; }
+
+.form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #ffffff;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite; }
+
+.form input, .form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px; }
+
+.form input:focus, .formtextarea:focus {
+  border-color: #330066; }
+
+.form input {
+  padding: 20px 15px; }
+
+.form textarea {
+  padding: 12px 15px; }
+
+.form input[type="submit"] {
+  background: #330066;
+  border: 0;
+  padding: 10px 30px;
+  color: #ffffff;
+  transition: 0.4s;
+  border-radius: 4px; }
+
+.form button[type="submit"]:hover {
+  background: #3b8af2; }

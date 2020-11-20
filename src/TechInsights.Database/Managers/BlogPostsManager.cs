@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,10 +11,12 @@ namespace TechInsights.Database.Managers
     public class BlogPostsManager : IBlogPostsManager
     {
         private readonly IRepositoryBase<BlogPost> _blogPostRepository;
+        private readonly IRepositoryBase<BlogPostComment> _blogPostCommentRepository;
 
-        public BlogPostsManager(IRepositoryBase<BlogPost> blogPostRepository)
+        public BlogPostsManager(IRepositoryBase<BlogPost> blogPostRepository, IRepositoryBase<BlogPostComment> blogPostCommentRepository)
         {
             _blogPostRepository = blogPostRepository;
+            _blogPostCommentRepository = blogPostCommentRepository;
         }
 
         public async Task<IEnumerable<BlogPost>> GetAllAsync()
@@ -50,6 +53,25 @@ namespace TechInsights.Database.Managers
                 .Include(i => i.Comments)
                 .Include(i => i.Categories)
                 .FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> AddBlogPostComment(BlogPostComment comment)
+        {
+            if (comment != null)
+            {
+                try
+                {
+                    await _blogPostCommentRepository.CreateAsync(comment);
+
+                    return true;
+                }
+                catch (Exception)
+                {
+                    // TODO
+                }
+            }
+
+            return false;
         }
     }
 }

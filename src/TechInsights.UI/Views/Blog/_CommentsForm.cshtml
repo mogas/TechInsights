@@ -1,0 +1,57 @@
+﻿@model BlogPostComment
+
+    <div class="container" data-aos="fade-up">
+        <div class="form mt-4">
+            <h3>Post a comment</h3>
+            <br />
+            <form method="post" asp-controller="Blog" asp-action="AddComment"
+                  data-ajax="true"
+                  data-ajax-mode="POST"
+                  data-ajax-success="commentsFormSuccess"
+                  data-ajax-complete="FormComplete"
+                  data-ajax-failure="commentsFormFail"
+                  data-ajax-loading="#divloading"
+                  id="commentForm">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                <input asp-for="BlogPostId" type="hidden" />
+
+                <label for="content">Comment</label>
+
+
+                <div class="form-group">
+                    <textarea asp-for="Content" rows="5" cols="1" class="form-control" placeholder="Comment"></textarea>
+                    <span asp-validation-for="Content" class="validate"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Author" type="text" class="form-control" placeholder="Your Name" />
+                    <span asp-validation-for="Author" class="validate"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Your Email" />
+                    <span asp-validation-for="Email" class="validate"></span>
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Post comment" />
+                </div>
+            </form>
+
+        </div>
+        <div id="divloading" class="loading"></div>
+
+
+        <div id="success-message-container" class="sent-message info-box">
+            <strong class="text-purple">Awesome!</strong> Your comment is now live!
+        </div>
+
+        <div id="error-message-container" class="error-message info-box">
+            <strong class="text-purple">Ooooops... </strong> Something went wrong and your comment couldn't be processed.
+            <p>
+                Please try again
+            </p>
+        </div>
+    </div>
+

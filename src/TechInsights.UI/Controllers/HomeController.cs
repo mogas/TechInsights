@@ -38,7 +38,7 @@ namespace TechInsights.UI.Controllers
             {
                 var status = await contactFormService.SendContactMessage(form);
 
-                Thread.Sleep(1500);
+                Thread.Sleep(Constants.Timers.Spinner);
 
                 if (status)
                 {

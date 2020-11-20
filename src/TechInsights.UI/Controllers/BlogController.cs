@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 using System.Threading.Tasks;
 using TechInsights.Application.Services.Blog;
 using TechInsights.Domain.Models;
+using TechInsights.UI.ViewModels;
 
 namespace TechInsights.UI.Controllers
 {
@@ -21,7 +23,13 @@ namespace TechInsights.UI.Controllers
         public async Task<IActionResult> Index()
         {
             var result = await _blogPostsService.GetAllAsync();
-            return View(result);
+
+            var viewModel = new BlogViewModel()
+            {
+                BlogPosts = result
+            };
+
+            return View(viewModel);
         }
 
         [Route(Constants.Routes.BlogPost)]
@@ -30,7 +38,21 @@ namespace TechInsights.UI.Controllers
         {
             var result = await _blogPostsService.GetBySlugAsync(slug);
 
-            return result == null ? this.NotFound() : (IActionResult)this.View(result);
+            var viewModel = new BlogPostViewModel()
+            {
+                BlogPost = result,
+                BlogPostComments = new BlogPostCommentsViewModel()
+                {
+                    Comments = result.Comments,
+                    BlogPostId = result.Id,
+                    CommentForm = new BlogPostComment()
+                    {
+                        BlogPostId = result.Id
+                    }
+                }
+            };
+
+            return viewModel?.BlogPost == null ? this.NotFound() : (IActionResult)this.View(viewModel);
         }
 
         [Route(Constants.Routes.BlogPostByCategory)]
@@ -42,14 +64,22 @@ namespace TechInsights.UI.Controllers
             return this.View("~/Views/Blog/Index.cshtml", result);
         }
 
-        [Route(Constants.Routes.BlogAddComment)]
-        [OutputCache(Profile = "default")]
-        [HttpPost]
-        public async Task<IActionResult> AddComment(string postId, BlogPostComment comment)
+        [HttpPost, AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> AddComment(BlogPostComment comment)
         {
+            if (comment != null && ModelState.IsValid)
+            {
+                var result = await _blogPostsService.AddComment(comment);
 
+                Thread.Sleep(Constants.Timers.Spinner);
 
-            return this.View("~/Views/Blog/Index.cshtml");
+                if (result)
+                {
+                    return PartialView("_CommentsForm");
+                }
+            }
+
+            return null;
         }
     }
 }

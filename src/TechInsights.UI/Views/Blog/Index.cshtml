@@ -3,10 +3,10 @@
     ViewData["blogActive"] = "active";
 }
 
-@model IEnumerable<BlogPost>
+@model BlogViewModel
 
 <section class="inner-page">
-    @foreach (var blog in Model)
+    @foreach (var blog in Model.BlogPosts)
     {
 
         <div class="container">

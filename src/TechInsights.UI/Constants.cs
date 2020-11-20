@@ -2,6 +2,11 @@
 {
     public static class Constants
     {
+        public static class Timers
+        {
+            public const int Spinner = 1500;
+        }
+
         public static class Global
         {
             public const string AUTHOR = "Nuno Silva";
@@ -29,7 +34,6 @@
         {
             public const string BlogPost = "/blog/{slug?}";
             public const string BlogPostByCategory = "/blog/category/{category}/{page:int?}";
-            public const string BlogAddComment = "/blog/comment/{postId}";
         }
     }
 }

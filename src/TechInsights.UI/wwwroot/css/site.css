@@ -196,74 +196,6 @@ main {
   .comment time {
     font-size: .8em; }
 
-.comment-form {
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
-  padding: 30px; }
-
-.comment-form .validate {
-  color: #FF0000;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px; }
-
-.error-message {
-  display: none;
-  background: #ffffff;
-  text-align: center;
-  padding: 15px; }
-
-.comment-form .error-message br + br {
-  margin-top: 25px; }
-
-.sent-message {
-  display: none;
-  background: #ffffff;
-  text-align: center;
-  padding: 15px; }
-
-.comment-form .loading {
-  display: none;
-  background: #ffffff;
-  text-align: center;
-  padding: 15px; }
-
-.comment-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #ffffff;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite; }
-
-.comment-form input, .comment-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px; }
-
-.comment-form input:focus, .comment-form textarea:focus {
-  border-color: #330066; }
-
-.comment-form input {
-  padding: 20px 15px; }
-
-.comment-form textarea {
-  padding: 12px 15px; }
-
-.comment-form input[type="submit"] {
-  background: #330066;
-  border: 0;
-  padding: 10px 30px;
-  color: #ffffff;
-  transition: 0.4s;
-  border-radius: 4px; }
-
-.comment-form button[type="submit"]:hover {
-  background: #3b8af2; }
-
 .contact .info-box {
   color: #444444;
   text-align: center;
@@ -290,38 +222,43 @@ main {
   font-size: 14px;
   margin-bottom: 0; }
 
-.contact .contact-form {
+#footer {
+  background: #ffffff;
+  color: #444444;
+  font-size: 14px; }
+
+.form {
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
   padding: 30px; }
 
-.contact .contact-form .validate {
+.form .validate {
   color: #FF0000;
   margin: 0 0 15px 0;
   font-weight: 400;
   font-size: 13px; }
 
-.contact .error-message {
+.error-message {
   display: none;
   background: #ffffff;
   text-align: center;
   padding: 15px; }
 
-.contact .contact-form .error-message br + br {
+.form .error-message br + br {
   margin-top: 25px; }
 
-.contact .sent-message {
+.sent-message {
   display: none;
   background: #ffffff;
   text-align: center;
   padding: 15px; }
 
-.contact .contact-form .loading {
+.form .loading {
   display: none;
   background: #ffffff;
   text-align: center;
   padding: 15px; }
 
-.contact .contact-form .loading:before {
+.form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -333,21 +270,21 @@ main {
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite; }
 
-.contact .contact-form input, .contact .contact-form textarea {
+.form input, .form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px; }
 
-.contact .contact-form input:focus, .contact .contact-form textarea:focus {
+.form input:focus, .formtextarea:focus {
   border-color: #330066; }
 
-.contact .contact-form input {
+.form input {
   padding: 20px 15px; }
 
-.contact .contact-form textarea {
+.form textarea {
   padding: 12px 15px; }
 
-.contact .contact-form input[type="submit"] {
+.form input[type="submit"] {
   background: #330066;
   border: 0;
   padding: 10px 30px;
@@ -355,13 +292,8 @@ main {
   transition: 0.4s;
   border-radius: 4px; }
 
-.contact .contact-form button[type="submit"]:hover {
+.form button[type="submit"]:hover {
   background: #3b8af2; }
-
-#footer {
-  background: #ffffff;
-  color: #444444;
-  font-size: 14px; }
 
 #header {
   background: #ffffff;

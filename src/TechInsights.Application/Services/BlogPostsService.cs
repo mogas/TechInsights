@@ -36,5 +36,10 @@ namespace TechInsights.Application.Services.Blog
         {
             return _cacheService.GetOrCreateAsync<IEnumerable<BlogPost>>($"Post-{category}", () => _blogPostsManager.GetByCategory(category));
         }
+
+        public async Task<bool> AddComment(BlogPostComment comment)
+        {
+            return await _blogPostsManager.AddBlogPostComment(comment);
+        }
     }
 }

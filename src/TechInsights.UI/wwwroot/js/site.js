@@ -126,7 +126,7 @@
 
 })(jQuery);
 
-function contactFormComplete(data) {
+function FormComplete(data) {
     $('#divloading').delay(100).fadeOut('slow', function () {
         $(this).hide();
     });
@@ -134,6 +134,7 @@ function contactFormComplete(data) {
 
 function contactFormSuccess(data) {
     $('#contactForm').hide();
+    $("#contactForm")[0].reset();
     $('#success-message-container').show();
 }
 
@@ -142,3 +143,11 @@ function contactFormFail(data) {
     $('#error-message-container').show();
 }
 
+function commentsFormSuccess(data) {    
+    $("#commentForm")[0].reset();
+    $('#success-message-container').show();
+}
+
+function commentsFormFail(data) {    
+    $('#error-message-container').show();
+}

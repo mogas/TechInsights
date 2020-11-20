@@ -1,0 +1,84 @@
+﻿@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+.form {
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
+    padding: 30px;
+}
+
+
+.form .validate {
+    color: $color-red;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.error-message {
+    display: none;
+    background: $color-white;
+    text-align: center;
+    padding: 15px;
+}
+
+.form .error-message br + br {
+    margin-top: 25px;
+}
+
+.sent-message {
+    display: none;
+    background: $color-white;
+    text-align: center;
+    padding: 15px;
+}
+
+.form .loading {
+    display: none;
+    background: $color-white;
+    text-align: center;
+    padding: 15px;
+}
+
+.form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid $color-green;
+    border-top-color: $color-white;
+    -webkit-animation: animate-loading 1s linear infinite;
+    animation: animate-loading 1s linear infinite;
+}
+
+.form input, .form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+}
+
+.form input:focus, .formtextarea:focus {
+    border-color: $color-theme;
+}
+
+.form input {
+    padding: 20px 15px;
+}
+
+.form textarea {
+    padding: 12px 15px;
+}
+
+.form input[type="submit"] {
+    background: $color-theme;
+    border: 0;
+    padding: 10px 30px;
+    color: $color-white;
+    transition: 0.4s;
+    border-radius: 4px;
+}
+
+.form button[type="submit"]:hover {
+    background: $color-hover;
+}

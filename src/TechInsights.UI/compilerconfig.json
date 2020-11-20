@@ -66,5 +66,9 @@
   {
     "outputFile": "wwwroot/sass/abstracts/_variables.css",
     "inputFile": "wwwroot/sass/abstracts/_variables.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/components/Forms.css",
+    "inputFile": "wwwroot/sass/components/Forms.scss"
   }
 ]

@@ -1,9 +1,9 @@
-﻿@model BlogPost
+﻿@model BlogPostViewModel
 
 @if (Model != null)
 {
 
-    ViewData["Title"] = Model.Title;
+    ViewData["Title"] = Model.BlogPost.Title;
     ViewData["blogActive"] = "active";
 
 
@@ -15,21 +15,21 @@
             <article class="blog">
 
                 <header class="entry-header">
-                    <h1>@Model.Title</h1>
+                    <h1>@Model.BlogPost.Title</h1>
                     <div class="entry-meta">
                         by <span class="entry-author">Nuno Silva.</span>
-                        <span>@Model.CreatedDate.ToString("dd/MM/yyy")</span>
+                        <span>@Model.BlogPost.CreatedDate.ToString("dd/MM/yyy")</span>
                     </div>
                 </header>
 
                 <div class="entry-content">
-                    @Html.Raw(Model.HtmlContent)
+                    @Html.Raw(Model.BlogPost.HtmlContent)
                 </div>
 
             </article>
 
             @{
-                await Html.RenderPartialAsync("_Comments", Model);
+                await Html.RenderPartialAsync("_Comments", Model.BlogPostComments);
             }
 
         </div>
@@ -44,6 +44,8 @@
 
     @section Scripts{
         <script type="text/javascript" src="~/lib/prism/prism.min.js"></script>
+        <partial name="_ValidationScriptsPartial" />
     }
 }
+
 

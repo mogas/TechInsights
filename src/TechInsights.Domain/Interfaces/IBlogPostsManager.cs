@@ -13,5 +13,7 @@ namespace TechInsights.Domain.Interfaces
         Task<BlogPost> GetBySlugAsync(string slug);
 
         Task<IEnumerable<BlogPost>> GetByCategory(string category);
+
+        Task<bool> AddBlogPostComment(BlogPostComment comment);
     }
 }
