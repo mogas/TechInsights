@@ -23,13 +23,22 @@ namespace TechInsights.UI.Controllers
             return View(result);
         }
 
-        [Route("/blog/{slug?}")]
+        [Route(Constants.Routes.BlogPost)]
         [OutputCache(Profile = "default")]
         public async Task<IActionResult> BlogPost(string slug)
         {
             var result = await _blogPostsService.GetBySlugAsync(slug);
 
             return result == null ? this.NotFound() : (IActionResult)this.View(result);
+        }
+
+        [Route(Constants.Routes.BlogPostByCategory)]
+        [OutputCache(Profile = "default")]
+        public async Task<IActionResult> Category(string category, int page = 0)
+        {
+            var result = await _blogPostsService.GetByCategoryAsync(category);
+
+            return this.View("~/Views/Blog/Index.cshtml", result);
         }
     }
 }

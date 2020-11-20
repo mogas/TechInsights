@@ -11,5 +11,7 @@ namespace TechInsights.Domain.Interfaces
         Task<BlogPost> GetByIdAsync(int id);
 
         Task<BlogPost> GetBySlugAsync(string slug);
+
+        Task<IEnumerable<BlogPost>> GetByCategory(string category);
     }
 }

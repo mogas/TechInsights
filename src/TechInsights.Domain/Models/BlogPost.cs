@@ -10,11 +10,14 @@ namespace TechInsights.Domain.Models
         public string Title { get; set; }
 
         [Required]
+        public string Excerpt { get; set; } = string.Empty;
+
+        [Required]
         public string HtmlContent { get; set; }
 
-        public IList<string> Categories { get; } = new List<string>();
+        public virtual ICollection<BlogPostCategory> Categories { get; } = new List<BlogPostCategory>();
 
-        public virtual ICollection<BlogPostComment> Comments { get; } = new List<BlogPostComment>();
+        public virtual ICollection<BlogPostComment> Comments { get; set; } = new List<BlogPostComment>();
 
         public DateTime LastModified { get; set; } = DateTime.UtcNow;
 

@@ -16,10 +16,25 @@
                 <header class="entry-header">
                     <h1><a href="@blog.GetEncodedLink("blog")">@blog.Title</a></h1>
                     <div class="entry-meta">
-                        <span>@blog.CreatedDate.ToString("dd/MM/yyy")</span>
+                        <time datetime="@blog.LastModified.ToString("s")" itemprop="dateModified">@blog.LastModified.ToString("MMMM  dd, yyyy")</time>
+                        <span>
+                            @blog.Comments.Count Comments
+                        </span>
+                        @if (@blog.Categories.Any())
+                        {
+                            <ul class="categories">
+                                <li> Posted in </li>
+                                @foreach (var category in blog.Categories)
+                                {
+                                    <li itemprop="articleSection">
+                                        <a asp-controller="Blog" asp-action="Category" asp-route-category="@category.Title">@category.Title</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
                     </div>
                     <div class="entry-content">
-                        @Html.Raw(blog.HtmlContent.Substring(0, 100) + "...")
+                        @blog.Excerpt
                     </div>
                 </header>
 

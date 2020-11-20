@@ -18,10 +18,12 @@ namespace TechInsights.UI
     public class Startup
     {
         private readonly IConfiguration _config;
+        private readonly IWebHostEnvironment _env;
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             _config = configuration;
+            _env = env;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -61,7 +63,11 @@ namespace TechInsights.UI
                 x.AppendTrailingSlash = false;
             });
 
-            services.AddMemoryCache();
+
+            if (_env.IsProduction())
+            {
+                services.AddMemoryCache();
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,6 +96,7 @@ namespace TechInsights.UI
                 app.UseHsts();
                 app.UseStaticFilesWithCache();
                 app.UseWebMarkupMin();
+                app.UseOutputCaching();
             }
 
             app.Use(
@@ -104,11 +111,7 @@ namespace TechInsights.UI
 
             app.UseHttpsRedirection();
 
-
             app.UseMiddleware<CanonicalUrlMiddleware>(localHostSslPort);
-
-            //WebEssentials.AspNetCore.OutputCaching
-            app.UseOutputCaching();
 
 
             app.UseRouting();

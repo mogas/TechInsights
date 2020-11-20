@@ -5,17 +5,19 @@
 }
 
 
+@await Html.PartialAsync("_Hero")
 
-<partial name="_Hero" />
 
-<partial name="_About" />
+@await Html.PartialAsync("_About")
 
-<partial name="_News" />
 
-<partial name="_Testimonial" model="Model.Testimonials" />
+@await Html.PartialAsync("_News")
 
-<partial name="_ContactForm" model="Model.ContactForm" />
 
+@await Html.PartialAsync("_Testimonial", Model.Testimonials)
+
+
+@await Html.PartialAsync("_ContactForm", Model.ContactForm)
 
 
 @section Scripts{

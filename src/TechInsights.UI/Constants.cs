@@ -24,5 +24,11 @@
             public const string FACEBOOK = "https://www.facebook.com/nunomogassilva";
             public const string INSTAGRAM = "https://www.instagram.com/nmogas/";
         }
+
+        public static class Routes
+        {
+            public const string BlogPost = "/blog/{slug?}";
+            public const string BlogPostByCategory = "blog/category/{category}/{page:int?}";
+        }
     }
 }

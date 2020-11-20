@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechInsights.Database;
 
 namespace TechInsights.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201120135507_AddedExcerptToBlogPost")]
+    partial class AddedExcerptToBlogPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,30 +52,6 @@ namespace TechInsights.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BlogPost");
-                });
-
-            modelBuilder.Entity("TechInsights.Domain.Models.BlogPostCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int?>("BlogPostId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BlogPostId");
-
-                    b.ToTable("BlogPostCategory");
                 });
 
             modelBuilder.Entity("TechInsights.Domain.Models.BlogPostComment", b =>
@@ -204,13 +182,6 @@ namespace TechInsights.Database.Migrations
                     b.ToTable("Testimonial");
                 });
 
-            modelBuilder.Entity("TechInsights.Domain.Models.BlogPostCategory", b =>
-                {
-                    b.HasOne("TechInsights.Domain.Models.BlogPost", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("BlogPostId");
-                });
-
             modelBuilder.Entity("TechInsights.Domain.Models.BlogPostComment", b =>
                 {
                     b.HasOne("TechInsights.Domain.Models.BlogPost", null)
@@ -220,8 +191,6 @@ namespace TechInsights.Database.Migrations
 
             modelBuilder.Entity("TechInsights.Domain.Models.BlogPost", b =>
                 {
-                    b.Navigation("Categories");
-
                     b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
