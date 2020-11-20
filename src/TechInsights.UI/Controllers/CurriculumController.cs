@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TechInsights.Application.Portfolio;
+using TechInsights.Application.Services.Portfolio;
 
 namespace TechInsights.UI.Controllers
 {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using TechInsights.Domain.Interfaces;
 
-namespace TechInsights.Application.ContactForm
+namespace TechInsights.Application.Services.ContactForm
 {
     [Service]
     public class ContactFormService

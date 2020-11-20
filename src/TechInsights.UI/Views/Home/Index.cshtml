@@ -1,4 +1,4 @@
-﻿
+﻿@model HomeViewModel
 @{
     ViewData["Title"] = "Home";
     ViewData["homeActive"] = "active";
@@ -10,11 +10,12 @@
 
 <partial name="_About" />
 
-@await Component.InvokeAsync("News")
+<partial name="_News" />
 
-@await Component.InvokeAsync("Testimonial")
+<partial name="_Testimonial" model="Model.Testimonials" />
 
-@await Component.InvokeAsync("ContactForm")
+<partial name="_ContactForm" model="Model.ContactForm" />
+
 
 
 @section Scripts{

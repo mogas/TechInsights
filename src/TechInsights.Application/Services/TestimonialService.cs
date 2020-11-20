@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using TechInsights.Domain.Interfaces;
 
-namespace TechInsights.Application.Testimonial
+namespace TechInsights.Application.Services.Testimonial
 {
     [Service]
     public class TestimonialService

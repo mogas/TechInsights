@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using TechInsights.Domain.Interfaces;
 using TechInsights.Domain.Models;
 
-namespace TechInsights.Application.Portfolio
+namespace TechInsights.Application.Services.Portfolio
 {
     [Service]
     public class PortfolioService

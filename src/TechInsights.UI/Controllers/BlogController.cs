@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using TechInsights.Application.Blog;
+using TechInsights.Application.Services.Blog;
 
 namespace TechInsights.UI.Controllers
 {

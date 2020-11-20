@@ -7,6 +7,7 @@
             public const string AUTHOR = "Nuno Silva";
             public const string COPYRIGHT = "NunoSilva";
             public const string SITE_NAME = "Tech Insights.";
+            public const string DESCRIPTION = "description";
         }
 
         public static class Contact
